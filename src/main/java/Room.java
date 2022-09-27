@@ -1,16 +1,16 @@
 public class Room {
 
     private String name;
-    private String beskrivelsen;
+    private String description;
     private Room north;
     private Room west;
     private Room south;
     private Room east;
 
 
-    public Room(String name, String beskrivelsen){
+    public Room(String name, String description){
         this.name = name;
-        this.beskrivelsen = beskrivelsen;
+        this.description = description;
     }
 
     public String getName(){
@@ -21,11 +21,11 @@ public class Room {
     }
 
 
-    public String getBeskrivelsen(){
-        return beskrivelsen;
+    public String getDescription(){
+        return description;
     }
-    public void setBeskrivelsen(String beskrivelsen){
-        this.beskrivelsen = beskrivelsen;
+    public void setDescription(String description){
+        this.description = description;
     }
 
 

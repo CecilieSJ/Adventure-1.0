@@ -6,37 +6,57 @@ public class UserInterFace {
 
     public void startMenu() {
         boolean isRunning = true;
+        System.out.println("You are now in a " + adventure.getCurrentRoom().getName() + "\n" + adventure.getCurrentRoom().getDescription());
         while (isRunning) {
             String direction = scan.nextLine();
             switch (direction) {
 
                 case "Go north", "North", "n":
 
-                    boolean goingNorth = adventure.goNorth();
-                    System.out.println("going north " + goingNorth );
+                    if(adventure.goNorth()){
+                        System.out.println("Going north \n" + adventure.getCurrentRoom().getName() + "\n" + adventure.getCurrentRoom().getDescription() );
 
-                    break;
+                    } else{
+                        System.out.println("You can not go that way" );
+                    } break;
+
+
+                case "Go east", "east", "e":
+                    if(adventure.goEast()){
+                        System.out.println("Going east \n" + adventure.getCurrentRoom().getName() + "\n" + adventure.getCurrentRoom().getDescription() );
+
+                    }else {
+                        System.out.println("You can not go that way" );
+                    }break;
+
 
                 case "Go south", "South", "s":
 
-                    boolean goingSouth = adventure.goSouth();
-                    System.out.println("going south " + goingSouth);
-                    break;
+                    if(adventure.goSouth()){
+                        System.out.println("Going south \n" + adventure.getCurrentRoom().getName() + "\n" + adventure.getCurrentRoom().getDescription() );
 
-                case "Go east", "east", "e":
-                    System.out.println("going e");
-                    break;
+                    }else {
+                        System.out.println("You can not go that way" );
+                    }break;
+
 
                 case " Go west", "west", "w":
-                    System.out.println("going w");
-                    break;
+
+                    if(adventure.goWest()){
+                        System.out.println("Going west \n" + adventure.getCurrentRoom().getName() + "\n" + adventure.getCurrentRoom().getDescription() );
+
+                    }else {
+                        System.out.println("You can not go that way" );
+                    }break;
 
                 case "exit", "ex":
-                    isRunning=false;
+                    System.out.println("Exiting progam...");
+                    isRunning = false;
                     break;
 
                 case "help", "h":
-                    System.out.print("kkk");
+                    System.out.print("Help information");
+                    //TODO indsæt hjælpinfo til bruger.
                     break;
 
                 case "look", "l":

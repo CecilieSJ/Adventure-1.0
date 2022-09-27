@@ -4,14 +4,14 @@ public class Adventure {
     public Adventure() {
 
         Room cabin = new Room("Cabin", "Something startled you in your sleep and you woke up with shock. You find yourself in a cabin fare fare away from everything. " +
-                "Even with only a messy bed and an old chair it feels like the walls are coming down on your and it gives you an itch nose. How you got there is a big mystery you have got to solve." +
+                "Even with only a messy bed and an old chair it feels like the walls are coming down on you.  The smell gives you an itch nose. How you got there is a big mystery you have got to solve." +
                 "You reaching out for the cold doorknob that sends chills down your spine and you slowly open the door. ");
-        Room forest = new Room("forest", "It has become dark. The thin air feels like a knife cutting through your skin." +
+        Room forest = new Room("Forest", "It has become dark. The thin air feels like a knife cutting through your skin." +
                 "You have been walking around for hours but it is like the darkness has swallowed you. ");
         Room gateToVillage = new Room("Gate to village", "You keep moving forward though the dark forest " +
                 "and after what feels like forever you finally arrive to a clearing. " +
                 "Where their is a gate but if you look closer to it, you can see that the gate has a lock on it, which requires a key");
-        Room hill = new Room("hill", "Behind the cabin you find a hidden bike. You decide to ride the bike down the rockey road meanwhile the rust from the bike falls as you go.. " +
+        Room hill = new Room("Hill", "Behind the cabin you find a hidden bike. You decide to ride the bike down the rockey road meanwhile the rust from the bike falls as you go.. " +
                 " Your hands tightens the gib around the handles as the bike struggles to find its gib trough the wet leaves and stones. Your heading in full speed down towards a big gate where multiple house are hiding from the rough landscape." +
                 "There must be someone down there that can help you...... or can they?");
         Room tainStation = new Room("Trainstation", " As you desire for air get bigger, you suddenly see light spreading throughout the tunnel." +
@@ -21,10 +21,10 @@ public class Adventure {
                 "the gate closes shut behind you and you are now unable to go back to your cabin from that way" +
                 "As the key only works one way and you would have to find another way to pass the gate." +
                 " You look away from the gate and you can see what seems to be an abandoned village, however you have a feel that it might not be the case");
-        Room payphone = new Room("payphone", "As you drive though the wight open gate, you suddenly stop. You can feel a huge lump forming in your stomach,that was not there before." +
+        Room payphone = new Room("Payphone", "As you drive though the wight open gate, you suddenly stop. You can feel a huge lump forming in your stomach,that was not there before." +
                 "All the small house har pitch black and can only be seen because of to streetlamps lightning the darkness of the night. In a narrow window a angry face meets yours. You are not welcome so you are on your own." +
                 "Further ahead, beneath the streetlamp is a payphone. You run over to the payphone, only to find out, that the unknown voice in the other end says: Go to the lake and you will find what you seek.  ");
-        Room theLake = new Room("lake", "You fight your way though the darkness until you arrives to a tiny lake, formed as a snake. Something is off. A around circle is forming in the middle of the lake and you take a leap of faith and jump in." +
+        Room theLake = new Room("Lake", "You fight your way though the darkness until you arrives to a tiny lake, formed as a snake. Something is off. A around circle is forming in the middle of the lake and you take a leap of faith and jump in." +
                 "As you get further to the circle you see that it is a well with arrows pointing down toward the. You are now out of options and you take a deep breath and starts descending.");
         Room theHouse = new Room("The House", "You walk over to one of the houses, which to your surprise is'nt locked"+
                 "you enter the house and you discover that the house only has one big room, which looks old and abandoned" +
@@ -35,50 +35,39 @@ public class Adventure {
 
 
 
-        cabin.setNorth(null);
+
+
         cabin.setEast(forest);
-        cabin.setWest(null);
         cabin.setSouth(hill);
 
-        forest.setNorth(null);
+
         forest.setEast(gateToVillage);
         forest.setWest(cabin);
-        forest.setSouth(null);
 
-        gateToVillage.setNorth(null);
-        gateToVillage.setEast(null);
+
         gateToVillage.setWest(forest);
         gateToVillage.setSouth(theVillage);
 
         hill.setNorth(cabin);
-        hill.setEast(null);
-        hill.setWest(null);
         hill.setSouth(payphone);
 
-        tainStation.setNorth(null);
-        tainStation.setEast(null);
-        tainStation.setWest(null);
+
         tainStation.setSouth(theLake);
 
         theVillage.setNorth(gateToVillage);
-        theVillage.setEast(null);
-        theVillage.setWest(null);
         theVillage.setSouth(theHouse);
 
         payphone.setNorth(hill);
         payphone.setEast(theLake);
-        payphone.setWest(null);
-        payphone.setSouth(null);
+
 
         theLake.setNorth(tainStation);
         theLake.setWest(payphone);
         theLake.setEast(theHouse);
-        theLake.setSouth(null);
+
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);
-        theHouse.setEast(null);
-        theHouse.setSouth(null);
 
         currentRoom = cabin;
     }

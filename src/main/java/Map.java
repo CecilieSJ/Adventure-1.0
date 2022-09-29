@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 public class Map {
 
     private Room startRoom;
+    private Item startItem;
 
     public Map() {
 
@@ -36,25 +39,38 @@ public class Map {
 
 
 
+
+
+        Item jacket = new Item("Jacket");
+        Item flashLight = new Item("flashlight");
+        Item key1 = new Item("Key");
+        Item coin = new Item("coin");
+        Item note = new Item("Note: 'Go to the lake and you'll find what you seek'");
+        Item divingGear = new Item("diving gear");
+
+
         cabin.setEast(forest);
         cabin.setSouth(hill);
+        cabin.addItem(jacket.getItemName());
 
 
         forest.setEast(gateToVillage);
         forest.setWest(cabin);
-
+        forest.addItem(flashLight.getItemName());
 
         gateToVillage.setWest(forest);
         gateToVillage.setSouth(theVillage);
+        gateToVillage.addItem(key1.getItemName());
 
         hill.setNorth(cabin);
         hill.setSouth(payphone);
-
+        hill.addItem(coin.getItemName());
 
         tainStation.setSouth(theLake);
 
         theVillage.setNorth(gateToVillage);
         theVillage.setSouth(theHouse);
+
 
         payphone.setNorth(hill);
         payphone.setEast(theLake);
@@ -63,15 +79,27 @@ public class Map {
         theLake.setNorth(tainStation);
         theLake.setWest(payphone);
         theLake.setEast(theHouse);
+        theLake.addItem(divingGear.getItemName());
 
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);
+        theHouse.addItem(note.getItemName());
 
         startRoom = cabin;
+        startItem = jacket;
+
     }
 
     public Room getStartRoom(){
         return startRoom;
+    }
+
+    public Item getStartItem(){
+        return startItem;
+    }
+
+    public String getItem(String itemName){
+        return itemName;
     }
 }

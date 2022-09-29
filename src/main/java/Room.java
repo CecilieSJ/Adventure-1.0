@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Room {
 
     private String name;
@@ -6,7 +8,22 @@ public class Room {
     private Room west;
     private Room south;
     private Room east;
+    private ArrayList<Item> items = new ArrayList<>();
 
+    Item jacket = new Item("Jacket");
+    Item flashLight = new Item("flashlight");
+    Item key1 = new Item("Key");
+    Item coin = new Item("coin");
+    Item divingGear = new Item("diving gear");
+
+    public void addItem(String itemName){
+        Item itemList = new Item(itemName);
+        items.add(itemList);
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 
     public Room(String name, String description){
         this.name = name;

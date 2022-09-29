@@ -1,12 +1,31 @@
+import java.util.ArrayList;
+
 public class Player {
 
     private Room currentRoom;
+    private ArrayList<Item> inventory = new ArrayList<>();
 
-    public Room getCurrentRoom(){
+    public void takeInventory(String itemName) {
+        Item personalItem = new Item(itemName);
+        inventory.add(personalItem);
+    }
+
+    public ArrayList<Item> itemSearch(String searchTerm) {
+        ArrayList<Item> itemSearch = new ArrayList<>();
+        for (Item inventoryItem : inventory) {
+            if (inventoryItem.getItemName().contains(searchTerm.toLowerCase())) {
+                itemSearch.add(inventoryItem);
+            }
+
+        }
+        return itemSearch;
+    }
+
+    public Room getCurrentRoom() {
         return currentRoom;
     }
 
-    public void setCurrentRoom(Room currentRoom){
+    public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
 
@@ -30,17 +49,18 @@ public class Player {
     }
 
     public boolean goEast() {
-        if (currentRoom.getEast() == null){
+        if (currentRoom.getEast() == null) {
             return false;
-        }else {
+        } else {
             currentRoom = currentRoom.getEast();
             return true;
         }
     }
-    public boolean goWest(){
-        if(currentRoom.getWest() == null){
+
+    public boolean goWest() {
+        if (currentRoom.getWest() == null) {
             return false;
-        }else {
+        } else {
             currentRoom = currentRoom.getWest();
             return true;
         }

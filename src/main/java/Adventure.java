@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public class Adventure {
    private Map map;
    private Player player;
 
+    //private ArrayList<Item> inventory = new ArrayList<>();
 
    public Adventure(){
+
        map = new Map();
        player = new Player();
        player.setCurrentRoom(map.getStartRoom());

@@ -67,7 +67,7 @@ public class UserInterFace {
                     break;
 
                 case "look", "l":
-                    System.out.println("In front of me i see " + adventure.getCurrentRoom().getDescription() + "\n" + adventure.getCurrentRoom().getItemList() + );
+                    System.out.println("In front of me i see " + adventure.getCurrentRoom().getDescription() + "\n" + adventure.getCurrentRoom().getItemList());
                     break;
                 default:
                     System.out.println("Could not find that command");

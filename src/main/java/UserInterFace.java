@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UserInterFace {
@@ -71,24 +72,14 @@ public class UserInterFace {
                     break;
 
                 case "take", "pick up", "pick":
-                    Item pickupItem = adventure.getCurrentRoom().removeItem(direction);
-                    if (pickupItem == null) {
-                        System.out.println("There is nothing with that name...");
-                    } else {
-                        System.out.println("You have now picked up " + pickupItem);
-                        adventure.getCurrentRoom().addItem(pickupItem);
 
-                    }
+                    System.out.println(adventure.takeItem("flashlight"));
                     break;
 
                 case "drop":
-                    Item dropItem = adventure.getCurrentRoom().removeItem(direction);
-                    if (dropItem == null) {
-                        System.out.println("There is nothing called that...");
-                    } else {
-                        System.out.println("You have now dropped " + dropItem);
-                        adventure.getCurrentRoom().addItem(dropItem);
-                    }
+
+                    System.out.println(adventure.dropItem("flashlight"));
+
                     break;
 
                 case "inv", "inven", "inventory":

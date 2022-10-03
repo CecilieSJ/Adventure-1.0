@@ -6,27 +6,28 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>();
 
 
-    public ArrayList<Item> getRoomInventory() {
-        return inventory;
+
+    public boolean takeItem(String itemName) {
+        for (Item item : currentRoom.getItemList()) {
+            if (item.getItemName().equals(itemName)) {
+                inventory.add(item);
+                currentRoom.getItemList().remove(item);
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void setInventory(ArrayList<Item> inventory) {
-        this.inventory = inventory;
-    }
-
-    public void addInventory(Item item) {
-        inventory.add(item);
-    }
-
-    public Item removeInventory(String itemName) {
-        for (Item item : inventory ) {
+    public boolean dropItem(String itemName) {
+        for (Item item : inventory) {
             if (item.getItemName().equals(itemName)) {
                 inventory.remove(item);
-                return item;
+                currentRoom.getItemList().add(item);
+                return true;
             }
 
         }
-        return null;
+        return false;
     }
 
 

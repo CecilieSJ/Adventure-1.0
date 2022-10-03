@@ -48,7 +48,6 @@ public class Room {
     }
 
 
-
     public Room getEast(){
         return east;
     }
@@ -59,20 +58,10 @@ public class Room {
     public ArrayList<Item> getItemList(){
         return itemList;
     }
-
     public void addItem(Item item){
         itemList.add(item);
     }
 
-    public Item removeItem(String itemName){
-        for(Item item : itemList){
-            if(item.getItemName().equals(itemName)){
-                itemList.remove(item);
-                return item;
-            }
-        }
-        return null;
-    }
 
 
 

@@ -7,13 +7,15 @@ public class Adventure {
 
     public Adventure() {
      player.setCurrentRoom(map.getStartRoom());
-    //player.setInventory(map.getStartRoom().getItemList());
-    //player.getRoomInventory();
 
     }
 
-
-    public Item getInve
+    public boolean takeItem(String itemName){
+        return player.takeItem(itemName);
+    }
+    public boolean dropItem(String itemName){
+        return player.dropItem(itemName);
+    }
     public Room getCurrentRoom() {
         return player.getCurrentRoom();
     }

@@ -37,12 +37,13 @@ public class Map {
                 "and the way that you came from.");
 
 
-        Item jacket = new Item("jacket: ", "It is always good to bring a jacket!");
-        Item flashLight = new Item("\nFlashlight: ", " Without a flashlight, you can not go fare.");
-        Item key1 = new Item("Key: ", " The ley is absolutely necessary ");
-        Item coin = new Item("Coin: ", " Pure luck to find a coin");
-        Item note = new Item("Note: 'Go to the lake and you'll find what you seek'", " If the note is there, maybe you should listen");
-        Item divingGear = new Item("Diving gear: ", " Well you need to lean one day. Might as well be now.");
+        Item jacket = new Item("jacket", "It is always good to bring a jacket!");
+        Item flashLight = new Item("flashlight", " Without a flashlight, you can not go fare.");
+        Item key = new Item("key", " The ley is absolutely necessary ");
+        Item coin = new Item("coin", " Pure luck to find a coin");
+        Item note = new Item("note'Go to the lake and you'll find what you seek'", " If the note is there, maybe you should listen");
+        Item divingGear = new Item("diving gear", " Well you need to lean one day. Might as well be now.");
+
 
 
         cabin.setEast(forest);
@@ -57,7 +58,7 @@ public class Map {
 
         gateToVillage.setWest(forest);
         gateToVillage.setSouth(theVillage);
-        gateToVillage.addItem(key1);
+        gateToVillage.addItem(key);
 
         hill.setNorth(cabin);
         hill.setSouth(payphone);

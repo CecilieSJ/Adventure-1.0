@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Map {
 
     private Room startRoom;
-    private Item startItem;
 
     public Map() {
 
@@ -41,30 +40,30 @@ public class Map {
 
 
 
-        Item jacket = new Item("Jacket");
-        Item flashLight = new Item("flashlight");
-        Item key1 = new Item("Key");
-        Item coin = new Item("coin");
-        Item note = new Item("Note: 'Go to the lake and you'll find what you seek'");
-        Item divingGear = new Item("diving gear");
+        Item jacket = new Item("Jacket", "dkdkd");
+        Item flashLight = new Item("flashlight", "dmjfn");
+        Item key1 = new Item("Key", "jfgj");
+        Item coin = new Item("coin", "fjfkf");
+        Item note = new Item("Note: 'Go to the lake and you'll find what you seek'", "dhhf");
+        Item divingGear = new Item("diving gear", "dhjs");
 
 
         cabin.setEast(forest);
         cabin.setSouth(hill);
-        cabin.addItem(jacket.getItemName());
+        cabin.addItem(jacket);
 
 
         forest.setEast(gateToVillage);
         forest.setWest(cabin);
-        forest.addItem(flashLight.getItemName());
+        forest.addItem(flashLight);
 
         gateToVillage.setWest(forest);
         gateToVillage.setSouth(theVillage);
-        gateToVillage.addItem(key1.getItemName());
+        gateToVillage.addItem(key1);
 
         hill.setNorth(cabin);
         hill.setSouth(payphone);
-        hill.addItem(coin.getItemName());
+        hill.addItem(coin);
 
         tainStation.setSouth(theLake);
 
@@ -79,15 +78,14 @@ public class Map {
         theLake.setNorth(tainStation);
         theLake.setWest(payphone);
         theLake.setEast(theHouse);
-        theLake.addItem(divingGear.getItemName());
+        theLake.addItem(divingGear);
 
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);
-        theHouse.addItem(note.getItemName());
+        theHouse.addItem(note);
 
         startRoom = cabin;
-        startItem = jacket;
 
     }
 
@@ -95,11 +93,4 @@ public class Map {
         return startRoom;
     }
 
-    public Item getStartItem(){
-        return startItem;
-    }
-
-    public String getItem(String itemName){
-        return itemName;
-    }
 }

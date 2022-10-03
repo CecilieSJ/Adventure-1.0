@@ -8,13 +8,7 @@ public class Room {
     private Room west;
     private Room south;
     private Room east;
-    private ArrayList<Item> items = new ArrayList<>();
-
-
-    public void addItem(String itemName){
-        Item itemList = new Item(itemName);
-        items.add(itemList);
-    }
+    private ArrayList<Item> itemList = new ArrayList<>();
 
 
     public Room(String name, String description){
@@ -61,5 +55,28 @@ public class Room {
     public void setEast(Room east) {
         this.east = east;
     }
+
+    public ArrayList<Item> getItemList(){
+        return itemList;
+    }
+
+    public void addItem(Item item){
+        itemList.add(item);
+    }
+
+    public Item removeItem(String itemName){
+        for(Item item : itemList){
+            if(item.getItemName().equals(itemName)){
+                itemList.remove(item);
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public boolean roomEmpty() {
+        return itemList.isEmpty();
+    }
+
 }
 

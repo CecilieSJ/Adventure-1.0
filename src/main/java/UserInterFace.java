@@ -9,7 +9,7 @@ public class UserInterFace {
     public void startMenu() {
         boolean isRunning = true;
         System.out.println("Welcome to The Adventure Game!");
-        System.out.println("You are now in a " + adventure.getStartRoom().getName() + "\n" + adventure.getStartRoom().getDescription());
+        System.out.println("You are now in a " + adventure.getStartRoom().getName() + "\n" + adventure.getStartRoom().getDescription() );
         while (isRunning) {
             String direction = scan.nextLine();
             switch (direction) {

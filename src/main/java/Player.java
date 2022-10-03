@@ -6,7 +6,7 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>();
 
 
-
+    
     public boolean takeItem(String itemName) {
         for (Item item : currentRoom.getItemList()) {
             if (item.getItemName().equals(itemName)) {
@@ -30,7 +30,6 @@ public class Player {
         return false;
     }
 
-
     public ArrayList<Item> inventorySearch(String searchTerm) {
         ArrayList<Item> itemSearch = getCurrentRoom().getItemList();
         for (Item inventoryItem : itemSearch) {
@@ -41,6 +40,8 @@ public class Player {
         }
         return itemSearch;
     }
+
+
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -87,5 +88,27 @@ public class Player {
         }
     }
 
+
+
+    public boolean move(char direction) {
+        Room requestedRoom = null;
+
+        if (direction == 'n') {
+            requestedRoom = currentRoom.getNorth();
+        } else if (direction == 'e') {
+            requestedRoom = currentRoom.getEast();
+        } else if (direction == 's') {
+            requestedRoom = currentRoom.getSouth();
+        } else if (direction == 'w') {
+            requestedRoom = currentRoom.getWest();
+        }
+
+        if (requestedRoom != null) {
+            currentRoom = requestedRoom;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

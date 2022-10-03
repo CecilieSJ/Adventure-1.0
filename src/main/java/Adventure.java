@@ -9,6 +9,13 @@ public class Adventure {
      player.setCurrentRoom(map.getStartRoom());
 
     }
+    public Player getPlayer() {
+        return player;
+    }
+
+    public boolean go(char direction) {
+        return player.move(direction);
+    }
 
     public boolean takeItem(String itemName){
         return player.takeItem(itemName);
@@ -16,6 +23,7 @@ public class Adventure {
     public boolean dropItem(String itemName){
         return player.dropItem(itemName);
     }
+
     public Room getCurrentRoom() {
         return player.getCurrentRoom();
     }
@@ -38,6 +46,10 @@ public class Adventure {
 
     public Room getStartRoom() {
         return map.getStartRoom();
+    }
+
+    public boolean go(String userChoice) {
+     return player.move(userChoice.charAt(0));
     }
 }
 

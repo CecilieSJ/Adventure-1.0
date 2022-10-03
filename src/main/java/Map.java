@@ -37,7 +37,7 @@ public class Map {
                 "and the way that you came from.");
 
 
-        Item jacket = new Item("Jacket: ", "It is always good to bring a jacket!");
+        Item jacket = new Item("jacket: ", "It is always good to bring a jacket!");
         Item flashLight = new Item("\nFlashlight: ", " Without a flashlight, you can not go fare.");
         Item key1 = new Item("Key: ", " The ley is absolutely necessary ");
         Item coin = new Item("Coin: ", " Pure luck to find a coin");

@@ -24,7 +24,6 @@ public class UserInterFace {
                     }
                     break;
 
-
                 case "Go east", "east", "e":
                     if (adventure.goEast()) {
                         System.out.println("Going east \n" + adventure.getCurrentRoom().getName() + "\n" + adventure.getCurrentRoom().getDescription());
@@ -33,7 +32,6 @@ public class UserInterFace {
                         System.out.println("You can not go that way");
                     }
                     break;
-
 
                 case "Go south", "South", "s":
 
@@ -44,7 +42,6 @@ public class UserInterFace {
                         System.out.println("You can not go that way");
                     }
                     break;
-
 
                 case " Go west", "west", "w":
 
@@ -73,13 +70,14 @@ public class UserInterFace {
                     System.out.println("Could not find that command");
                     break;
 
-                case "take":
+                case "take", "pick up", "pick":
                     Item pickupItem = adventure.getCurrentRoom().removeItem(direction);
                     if (pickupItem == null) {
                         System.out.println("There is nothing with that name...");
                     } else {
                         System.out.println("You have now picked up " + pickupItem);
                         adventure.getCurrentRoom().addItem(pickupItem);
+
                     }
                     break;
 
@@ -93,7 +91,7 @@ public class UserInterFace {
                     }
                     break;
 
-                case "inv", "inve", "inven", "inventory":
+                case "inv", "inven", "inventory":
                     System.out.println("Your inventory contains: " + adventure.getCurrentRoom().getItemList());
                     break;
 

@@ -6,12 +6,20 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>();
 
 
-    public void takeInventory(Item itemName) {
-        inventory.add(itemName);
+    public ArrayList<Item> getRoomInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    public void addInventory(Item item) {
+        inventory.add(item);
     }
 
     public Item removeInventory(String itemName) {
-        for (Item item : inventory) {
+        for (Item item : inventory ) {
             if (item.getItemName().equals(itemName)) {
                 inventory.remove(item);
                 return item;
@@ -21,13 +29,10 @@ public class Player {
         return null;
     }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
 
     public ArrayList<Item> inventorySearch(String searchTerm) {
-        ArrayList<Item> itemSearch = new ArrayList<>();
-        for (Item inventoryItem : inventory) {
+        ArrayList<Item> itemSearch = getCurrentRoom().getItemList();
+        for (Item inventoryItem : itemSearch) {
             if (inventoryItem.getItemName().contains(searchTerm.toLowerCase())) {
                 itemSearch.add(inventoryItem);
             }
@@ -80,5 +85,6 @@ public class Player {
             return true;
         }
     }
+
 
 }

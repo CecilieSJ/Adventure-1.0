@@ -53,15 +53,25 @@ public class UserInterFace {
                     System.out.println("Could not find that command");
                     break;
 
-                case "take", "pick up", "pick":
+                case "take", "pick up":
+                    Item takeItem = adventure.takeItem(userChoice);
+                    if( takeItem != null){
+                        System.out.println("You took: "  + takeItem.getItemName());
+                    }else {
+                        System.out.println("Nothing with that name");
 
-                    System.out.println(adventure.takeItem("flashlight"));
+                    }
                     break;
 
                 case "drop":
-                    System.out.println(adventure.dropItem("flashlight"));
-
+                   Item dropItem = adventure.dropItem(userChoice);
+                    if( dropItem != null){
+                        System.out.println("You drop: " + dropItem.getItemName() );
+                    }else {
+                        System.out.println("Nothing with that name");
+                    }
                     break;
+
 
                 case "inv", "inven", "inventory":
                     System.out.println("Your inventory contains: " + adventure.getCurrentRoom().getItemList());

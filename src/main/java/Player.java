@@ -7,27 +7,27 @@ public class Player {
 
 
     
-    public boolean takeItem(String itemName) {
+    public Item takeItem(String itemName) {
         for (Item item : currentRoom.getItemList()) {
             if (item.getItemName().equals(itemName)) {
                 inventory.add(item);
                 currentRoom.getItemList().remove(item);
-                return true;
+                return item;
             }
         }
-        return false;
+        return null;
     }
 
-    public boolean dropItem(String itemName) {
+    public Item dropItem(String itemName) {
         for (Item item : inventory) {
             if (item.getItemName().equals(itemName)) {
                 inventory.remove(item);
                 currentRoom.getItemList().add(item);
-                return true;
+                return item;
             }
 
         }
-        return false;
+        return null;
     }
 
     public ArrayList<Item> inventorySearch(String searchTerm) {

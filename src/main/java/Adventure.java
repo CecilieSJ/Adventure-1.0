@@ -17,10 +17,10 @@ public class Adventure {
         return player.move(direction);
     }
 
-    public boolean takeItem(String itemName){
+    public Item takeItem(String itemName){
         return player.takeItem(itemName);
     }
-    public boolean dropItem(String itemName){
+    public Item dropItem(String itemName){
         return player.dropItem(itemName);
     }
 

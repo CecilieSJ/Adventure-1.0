@@ -13,10 +13,6 @@ public class Adventure {
         return player;
     }
 
-    public boolean go(char direction) {
-        return player.move(direction);
-    }
-
     public Item takeItem(String itemName){
         return player.takeItem(itemName);
     }
@@ -31,15 +27,12 @@ public class Adventure {
     public boolean goNorth() {
         return player.goNorth();
     }
-
     public boolean goEast() {
         return player.goEast();
     }
-
     public boolean goSouth() {
         return player.goSouth();
     }
-
     public boolean goWest() {
         return player.goWest();
     }
@@ -48,8 +41,15 @@ public class Adventure {
         return map.getStartRoom();
     }
 
+    public boolean go(char direction) {
+        return player.move(direction);
+    }
     public boolean go(String userChoice) {
      return player.move(userChoice.charAt(0));
+    }
+
+    public ArrayList<Item> allInventory() {
+        return player.getInventory();
     }
 }
 

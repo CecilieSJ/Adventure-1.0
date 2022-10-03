@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterFace {
@@ -74,7 +74,8 @@ public class UserInterFace {
 
 
                 case "inv", "inven", "inventory":
-                    System.out.println("Your inventory contains: " + adventure.getCurrentRoom().getItemList());
+                    ArrayList<Item> inventory = adventure.allInventory();
+                    System.out.println("Your inventory contains: " + inventory);
                     break;
 
 

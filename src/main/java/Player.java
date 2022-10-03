@@ -17,7 +17,6 @@ public class Player {
         }
         return null;
     }
-
     public Item dropItem(String itemName) {
         for (Item item : inventory) {
             if (item.getItemName().equals(itemName)) {
@@ -29,19 +28,9 @@ public class Player {
         }
         return null;
     }
-
-    public ArrayList<Item> inventorySearch(String searchTerm) {
-        ArrayList<Item> itemSearch = getCurrentRoom().getItemList();
-        for (Item inventoryItem : itemSearch) {
-            if (inventoryItem.getItemName().contains(searchTerm.toLowerCase())) {
-                itemSearch.add(inventoryItem);
-            }
-
-        }
-        return itemSearch;
+    public ArrayList<Item>getInventory(){
+        return inventory;
     }
-
-
 
     public Room getCurrentRoom() {
         return currentRoom;

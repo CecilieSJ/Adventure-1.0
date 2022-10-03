@@ -29,33 +29,31 @@ public class Map {
                 "Further ahead, beneath the streetlamp is a payphone. You run over to the payphone, only to find out, that the unknown voice in the other end says: Go to the lake and you will find what you seek.  ");
         Room theLake = new Room("Lake", "You fight your way though the darkness until you arrives to a tiny lake, formed as a snake. Something is off. A around circle is forming in the middle of the lake and you take a leap of faith and jump in." +
                 "As you get further to the circle you see that it is a well with arrows pointing down toward the. You are now out of options and you take a deep breath and starts descending.");
-        Room theHouse = new Room("The House", "You walk over to one of the houses, which to your surprise is'nt locked"+
+        Room theHouse = new Room("The House", "You walk over to one of the houses, which to your surprise isn't locked" +
                 "you enter the house and you discover that the house only has one big room, which looks old and abandoned" +
                 "the only sign of anyone that used to live there," +
-                "is an old bed and some shelves with some books and some stuff on a bedside table"+
-                "Where you find a note that states 'go to the lake and you will find what you seek'" + "You then exit the house and you can see a lake to the west from you"+
+                "is an old bed and some shelves with some books and some stuff on a bedside table" +
+                "Where you find a note that states 'go to the lake and you will find what you seek'" + "You then exit the house and you can see a lake to the west from you" +
                 "and the way that you came from.");
 
 
-
-
-
-        Item jacket = new Item("Jacket", "dkdkd");
-        Item flashLight = new Item("flashlight", "dmjfn");
-        Item key1 = new Item("Key", "jfgj");
-        Item coin = new Item("coin", "fjfkf");
-        Item note = new Item("Note: 'Go to the lake and you'll find what you seek'", "dhhf");
-        Item divingGear = new Item("diving gear", "dhjs");
+        Item jacket = new Item("Jacket: ", "It is always good to bring a jacket!");
+        Item flashLight = new Item("\nFlashlight: ", " Without a flashlight, you can not go fare.");
+        Item key1 = new Item("Key: ", " The ley is absolutely necessary ");
+        Item coin = new Item("Coin: ", " Pure luck to find a coin");
+        Item note = new Item("Note: 'Go to the lake and you'll find what you seek'", " If the note is there, maybe you should listen");
+        Item divingGear = new Item("Diving gear: ", " Well you need to lean one day. Might as well be now.");
 
 
         cabin.setEast(forest);
         cabin.setSouth(hill);
         cabin.addItem(jacket);
+        cabin.addItem(flashLight);
 
 
         forest.setEast(gateToVillage);
         forest.setWest(cabin);
-        forest.addItem(flashLight);
+
 
         gateToVillage.setWest(forest);
         gateToVillage.setSouth(theVillage);
@@ -89,8 +87,9 @@ public class Map {
 
     }
 
-    public Room getStartRoom(){
+    public Room getStartRoom() {
         return startRoom;
     }
+
 
 }

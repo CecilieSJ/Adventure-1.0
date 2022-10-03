@@ -3,17 +3,17 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
-    private ArrayList<Item> itemList = new ArrayList<>();
+    private ArrayList<Item> inventory = new ArrayList<>();
 
 
-    public void takeItem(Item itemName) {
-        itemList.add(itemName);
+    public void takeInventory(Item itemName) {
+        inventory.add(itemName);
     }
 
-    public Item removeItem(String itemName) {
-        for (Item item : itemList) {
+    public Item removeInventory(String itemName) {
+        for (Item item : inventory) {
             if (item.getItemName().equals(itemName)) {
-                itemList.remove(item);
+                inventory.remove(item);
                 return item;
             }
 
@@ -21,13 +21,13 @@ public class Player {
         return null;
     }
 
-    public ArrayList<Item> getItemList() {
-        return itemList;
+    public ArrayList<Item> getInventory() {
+        return inventory;
     }
 
-    public ArrayList<Item> itemSearch(String searchTerm) {
+    public ArrayList<Item> inventorySearch(String searchTerm) {
         ArrayList<Item> itemSearch = new ArrayList<>();
-        for (Item inventoryItem : itemList) {
+        for (Item inventoryItem : inventory) {
             if (inventoryItem.getItemName().contains(searchTerm.toLowerCase())) {
                 itemSearch.add(inventoryItem);
             }

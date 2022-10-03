@@ -17,6 +17,7 @@ public class UserInterFace {
 
                     if (adventure.goNorth()) {
                         System.out.println("Going north \n" + adventure.getStartRoom().getName() + "\n" + adventure.getStartRoom().getDescription());
+                        System.out.println();
 
                     } else {
                         System.out.println("You can not go that way");
@@ -66,7 +67,7 @@ public class UserInterFace {
                     break;
 
                 case "look", "l":
-                    System.out.println("In front of me i see " + adventure.getCurrentRoom().getDescription());
+                    System.out.println("In front of me i see " + adventure.getCurrentRoom().getDescription() + "\n" + adventure.getCurrentRoom().getItemList() + );
                     break;
                 default:
                     System.out.println("Could not find that command");

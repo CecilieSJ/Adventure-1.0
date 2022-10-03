@@ -14,10 +14,9 @@ public class Item {
         return itemName;
     }
 
-
-    public String getItemDescription(){
+   /* public String getItemDescription(){
         return itemDescription;
-    }
+    }*/
 
 
     @Override

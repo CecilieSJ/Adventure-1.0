@@ -6,7 +6,7 @@ public class Player {
     private ArrayList<Item> itemList = new ArrayList<>();
 
 
-    public void takeInventory(Item itemName) {
+    public void takeItem(Item itemName) {
         itemList.add(itemName);
     }
 

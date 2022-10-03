@@ -74,9 +74,6 @@ public class Room {
         return null;
     }
 
-    public boolean roomEmpty() {
-        return itemList.isEmpty();
-    }
 
 }
 

@@ -72,6 +72,10 @@ public class UserInterFace {
                     }
                     break;
 
+                case "health":
+                    System.out.println(adventure.getPlayerhealth());
+                    break;
+
 
                 case "inv", "inven", "inventory":
                     ArrayList<Item> inventory = adventure.allInventory();

@@ -20,23 +20,13 @@ public class Adventure {
         return player.dropItem(itemName);
     }
 
+     public int getPlayerhealth(){
+        return player.getLife();
+     }
+
     public Room getCurrentRoom() {
         return player.getCurrentRoom();
     }
-
-    public boolean goNorth() {
-        return player.goNorth();
-    }
-    public boolean goEast() {
-        return player.goEast();
-    }
-    public boolean goSouth() {
-        return player.goSouth();
-    }
-    public boolean goWest() {
-        return player.goWest();
-    }
-
     public Room getStartRoom() {
         return map.getStartRoom();
     }
@@ -51,5 +41,12 @@ public class Adventure {
     public ArrayList<Item> allInventory() {
         return player.getInventory();
     }
+
+
+
+
+
+
 }
+
 

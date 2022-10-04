@@ -45,10 +45,12 @@ public class Map {
         Item divingGear = new Item("diving gear", " Well you need to lean one day. Might as well be now.");
 
 
+
         cabin.setEast(forest);
         cabin.setSouth(hill);
         cabin.addItem(jacket);
         cabin.addItem(flashLight);
+        cabin.addItem(new Food("Appel","jfjfjf", 10));
 
 
         forest.setEast(gateToVillage);

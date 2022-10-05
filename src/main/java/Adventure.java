@@ -13,6 +13,7 @@ public class Adventure {
     public Item takeItem(String itemName) {
         return player.takeItem(itemName);
     }
+
     public Item dropItem(String itemName) {
         return player.dropItem(itemName);
     }
@@ -20,39 +21,47 @@ public class Adventure {
     public Player getPlayer() {
         return player;
     }
-    public int getLife() {
-        return player.getLife();
+
+    public int getHealthPoints() {
+        return player.getHealth();
     }
+
     public int addLife() {
-        return player.getLife();
+        return player.getHealth() + player.getLife();
     }
+
     public Room getCurrentRoom() {
         return player.getCurrentRoom();
     }
+
     public Room getStartRoom() {
         return map.getStartRoom();
     }
 
 
-
     public boolean go(String userChoice) {
         return player.move(userChoice.charAt(0));
     }
+
     public ArrayList<Item> allInventory() {
         return player.getInventory();
     }
-      /*public ReturnMessage eat(String foodName){
+
+
+
+    public ReturnMessage eat(String foodName) {
         Item item = player.takeItem(foodName);
-        if(item == null){
+        if (item == null) {
             return ReturnMessage.NOT_FOUND;
-        } if (item instanceof Food food){
+        }
+        if (item instanceof Food food) {
             player.eat(food);
+            addLife();
             return ReturnMessage.OK;
-        }else {
+        } else {
             return ReturnMessage.CANT;
         }
-    }*/
-
+    }
 
 
 }

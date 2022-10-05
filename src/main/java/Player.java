@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
+    private int health;
     private int life = 100;
     private ArrayList<Item> inventory = new ArrayList<>();
 
@@ -17,7 +18,6 @@ public class Player {
         }
         return null;
     }
-
     public Item dropItem(String itemName) {
         for (Item item : inventory) {
             if (item.getItemName().equals(itemName)) {
@@ -29,7 +29,6 @@ public class Player {
         }
         return null;
     }
-
     public ArrayList<Item> getInventory() {
         return inventory;
     }
@@ -37,7 +36,6 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
-
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
@@ -63,49 +61,47 @@ public class Player {
         }
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public int getLife() {
         return life;
     }
-/*
-    public int addHealth(int change) {
-      //  this.life = life;
-        //life += change;
-        return getLife() + health();
 
+    public void setLife(int life) {
+        this.life = life;
     }
 
-    private int gethealth() {
-        return health();
-    }*/
 
-
-
-
-
-
-
-
-
-    /*public Item eat(Food food) {
-        Item item = takeItem(food.getItemName());
-        if(item == null){
+    public ReturnMessage eat(Food foodName) {
+        Item eatItem = takeItem(foodName.getItemName());
+        if(eatItem == null){
             return ReturnMessage.NOT_FOUND;
-        } if (item instanceof Food food){
-            player.eat(food);
+        } if (eatItem instanceof Food){
+            inventory.remove(foodName);
             return ReturnMessage.OK;
         }else {
             return ReturnMessage.CANT;
         }
 
-    }*/
+    }
 
-
-   /* public void ReturnMessage(String foodName) {
-        NOT_FOUND;
-        OK;
-        CANT;
-
-    }*/
 
 
 }
+
+ /*   public void heal(int healAmount){
+        if (hp + healAmount < HP_MAX )
+            hp += healAmount;
+        else hp = HP_MAX;
+    }
+    public void damage(int damageAmount){
+        if (hp - damageAmount <= 0)
+            dead = true;
+        hp -= damageAmount;
+    }*/

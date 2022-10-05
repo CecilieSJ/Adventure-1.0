@@ -13,15 +13,13 @@ public class UserInterFace {
         while (isRunning) {
             String direction = scan.nextLine().toLowerCase();
             String[] userInputs = direction.split(" ");
-
-            //Adventure.ReturnMessage result;
-
+//int space = command.indexOf();
+//String secondWord = space>0 ? command.substring(space + 1).trim :null;
             String command = userInputs[0];
-            //int space = command.indexOf(' ');
-            //String secondWord = space > 0 ? command.substring(space + 1).trim() : null;
+
 
             String userChoice = "";
-            if(userInputs.length > 1){
+            if (userInputs.length > 1) {
                 userChoice = userInputs[1];
             }
 
@@ -30,13 +28,13 @@ public class UserInterFace {
 
                 case "go":
 
-                   boolean succes = true;
-                    if(adventure.go(userChoice) == true){
+                    boolean succes = true;
+                    if (adventure.go(userChoice) == true) {
                         System.out.println(adventure.getPlayer().getCurrentRoom().getName() + "\n"
                                 + adventure.getPlayer().getCurrentRoom().getDescription());
-                    }else{
+                    } else {
                         System.out.println("you can not go that way");
-                        succes=false;
+                        succes = false;
                     }
                     break;
 
@@ -60,25 +58,25 @@ public class UserInterFace {
 
                 case "take", "pick up":
                     Item takeItem = adventure.takeItem(userChoice);
-                    if( takeItem != null){
-                        System.out.println("You took: "  + takeItem.getItemName());
-                    }else {
+                    if (takeItem != null) {
+                        System.out.println("You took: " + takeItem.getItemName());
+                    } else {
                         System.out.println("Nothing with that name");
 
                     }
                     break;
 
                 case "drop":
-                   Item dropItem = adventure.dropItem(userChoice);
-                    if( dropItem != null){
-                        System.out.println("You drop: " + dropItem.getItemName() );
-                    }else {
+                    Item dropItem = adventure.dropItem(userChoice);
+                    if (dropItem != null) {
+                        System.out.println("You drop: " + dropItem.getItemName());
+                    } else {
                         System.out.println("Nothing with that name");
                     }
                     break;
 
                 case "health":
-                    System.out.println(adventure.getLife());
+                    System.out.println(adventure.getPlayer().getLife());
                     break;
 
 
@@ -88,39 +86,41 @@ public class UserInterFace {
                     break;
 
                 case "eat":
-                    Item roomInventory = adventure.takeItem(userChoice);
+                   /* Item roomInventory = adventure.takeItem(userChoice);
                     ArrayList<Item> itemInInventory = adventure.getPlayer().getInventory();
 
                     if (roomInventory != null) {
                         if (roomInventory instanceof Food) {
-                            System.out.println("You ate the " + roomInventory.getItemName());
+                            System.out.println("You ate the " + roomInventory.getItemName() + "Health " + ((Food) roomInventory).getHealth());
                             //TODO: Add health points
+                            int points = ((Food) roomInventory).getHealth() + adventure.addLife();
+                            adventure.getPlayer().setLife(points);
                         } else {
                             System.out.println(roomInventory.getItemName() + " is not edible");
                         }
                     } else if (itemInInventory == null) {
                         System.out.println("There is nothing with that name");
 
-                    } else {
-                        System.out.println("Invalid input");
-                    }
-                    break;
-                    //String foodName = secondWord;
-                     //result = adventure.eat(foodName);
-                   /* switch (result){
+                        break;*/
+
+
+
+                   /* String foodName = secondword;
+                    result = adventure.eat(foodName);
+                    switch (command) {
                         case NOT_FOUND:
                             System.out.println("There is no food item with that name");
                             break;
                         case OK:
-                            System.out.println("That is an edible item");
+                            System.out.println("jj");
                             break;
                         case CANT:
                             System.out.println("You cant eat that item");
                             break;
                         default:
                             System.out.println("");
-                    }*/
-
+                    }
+*/
 
             }
         }

@@ -60,7 +60,7 @@ public class Map {
         gateToVillage.setWest(forest);
         gateToVillage.setSouth(theVillage);
         gateToVillage.addItem(key);
-        gateToVillage.addItem(new Food("abandoned bread","This bread lays near the gate, you dont know why it is there, but you take it",15));
+        gateToVillage.addItem(new Food("bread","This bread lays near the gate, you dont know why it is there, but you take it",15));
 
         hill.setNorth(cabin);
         hill.setSouth(payphone);
@@ -83,8 +83,7 @@ public class Map {
         theLake.addItem(divingGear);
         theLake.addItem(new Food("small bag of nuts","a healthy snack for adventures and the locals in the nearby village",11));
         theLake.addItem(new Food("big apple","This apple is unusually big, but it just makes it looks more tasty",20));
-        theLake.addItem(new Food("rotten half alive crab","This crab seems to be almost dead but when you look at it," +
-                "you get an unexplainable urge to consume it, even though you know you shouldnt",-12));
+        theLake.addItem(new Food("crab","This crab seems to be almost dead but when you look at it, you get an unexplainable urge to consume it, even though you know you should not",-12));
         theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",2));
 
 

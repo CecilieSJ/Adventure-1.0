@@ -9,6 +9,20 @@ public class Adventure {
      player.setCurrentRoom(map.getStartRoom());
 
     }
+
+    /*public ReturnMessage eat(String foodName){
+        Item item = player.takeItem(foodName);
+        if(item == null){
+            return ReturnMessage.NOT_FOUND;
+        } if (item instanceof Food food){
+            player.eat(food);
+            return ReturnMessage.OK;
+        }else {
+            return ReturnMessage.CANT;
+        }
+    }
+
+     */
     public Player getPlayer() {
         return player;
     }

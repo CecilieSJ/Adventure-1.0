@@ -14,7 +14,10 @@ public class UserInterFace {
             String direction = scan.nextLine().toLowerCase();
             String[] userInputs = direction.split(" ");
 
+            //Adventure.ReturnMessage result;
             String command = userInputs[0];
+            int space = command.indexOf(' ');
+            String secondWord = space > 0 ? command.substring(space + 1).trim() : null;
             String userChoice = "";
             if(userInputs.length > 1){
                 userChoice = userInputs[1];
@@ -82,7 +85,25 @@ public class UserInterFace {
                     System.out.println("Your inventory contains: " + inventory);
                     break;
 
+                    /*
+                case "eat":
+                    String foodName = secondWord;
+                    result = adventure.eat(foodName);
+                    switch (result){
+                        case NOT_FOUND:
+                            System.out.println("There is no food item with that name");
+                            break;
+                        case OK:
+                            System.out.println("That is an edible item");
+                            break;
+                        case CANT:
+                            System.out.println("You cant eat that item");
+                            break;
+                        default:
+                            System.out.println("");
+                    }
 
+                     */
             }
         }
 

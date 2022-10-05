@@ -20,9 +20,16 @@ public class Adventure {
         }else {
             return ReturnMessage.CANT;
         }
+    }*/
+
+    public int getlife(){
+        return player.getLife();
+    }
+    public int eat(Food food){
+        return player.eat(food);
     }
 
-     */
+
     public Player getPlayer() {
         return player;
     }
@@ -45,9 +52,7 @@ public class Adventure {
         return map.getStartRoom();
     }
 
-    public boolean go(char direction) {
-        return player.move(direction);
-    }
+
     public boolean go(String userChoice) {
      return player.move(userChoice.charAt(0));
     }

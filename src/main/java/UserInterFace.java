@@ -15,9 +15,11 @@ public class UserInterFace {
             String[] userInputs = direction.split(" ");
 
             //Adventure.ReturnMessage result;
+
             String command = userInputs[0];
-            int space = command.indexOf(' ');
-            String secondWord = space > 0 ? command.substring(space + 1).trim() : null;
+            //int space = command.indexOf(' ');
+            //String secondWord = space > 0 ? command.substring(space + 1).trim() : null;
+
             String userChoice = "";
             if(userInputs.length > 1){
                 userChoice = userInputs[1];
@@ -85,11 +87,27 @@ public class UserInterFace {
                     System.out.println("Your inventory contains: " + inventory);
                     break;
 
-                    /*
                 case "eat":
-                    String foodName = secondWord;
-                    result = adventure.eat(foodName);
-                    switch (result){
+                    Item roomInventory = adventure.takeItem(userChoice);
+                    ArrayList<Item> itemInInventory = adventure.getPlayer().getInventory();
+
+                    if (roomInventory != null) {
+                        if (roomInventory instanceof Food) {
+                            System.out.println("You ate the " + roomInventory.getItemName());
+                            //TODO: Add health points
+                        } else {
+                            System.out.println(roomInventory.getItemName() + " is not edible");
+                        }
+                    } else if (itemInInventory == null) {
+                        System.out.println("There is nothing with that name");
+
+                    } else {
+                        System.out.println("Invalid input");
+                    }
+                    break;
+                    //String foodName = secondWord;
+                     //result = adventure.eat(foodName);
+                   /* switch (result){
                         case NOT_FOUND:
                             System.out.println("There is no food item with that name");
                             break;
@@ -101,9 +119,9 @@ public class UserInterFace {
                             break;
                         default:
                             System.out.println("");
-                    }
+                    }*/
 
-                     */
+
             }
         }
 

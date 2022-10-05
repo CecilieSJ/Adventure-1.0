@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
-public class Player {
+public class Player{
 
     private Room currentRoom;
     private int life = 100;
     private ArrayList<Item> inventory = new ArrayList<>();
 
 
-    
     public Item takeItem(String itemName) {
         for (Item item : currentRoom.getItemList()) {
             if (item.getItemName().equals(itemName)) {
@@ -18,6 +17,7 @@ public class Player {
         }
         return null;
     }
+
     public Item dropItem(String itemName) {
         for (Item item : inventory) {
             if (item.getItemName().equals(itemName)) {
@@ -30,29 +30,17 @@ public class Player {
         return null;
     }
 
-
-    public int getLife(){
-        return life;
-    }
-
-    public void setLife(int life){
-        this.life = life;
-    }
-
-
-    public ArrayList<Item>getInventory(){
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
-
-
     public boolean move(char direction) {
         Room requestedRoom = null;
 
@@ -73,12 +61,51 @@ public class Player {
             return false;
         }
     }
-    /*public ReturnMessage hh(){
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public void addToHealth(int healthValue){
+        this.life += healthValue;
+        if(life>100){
+            this.life = 100;
+        }
+        if(life<0){
+            this.life = 0;
+        }
+    }
+
+    public int eat(Food food){
+        addToHealth(food.getHealth());
+        return food.getHealth();
+    }
+
+
+    /*public Item eat(Food food) {
+        Item item = takeItem(food.getItemName());
+        if(item == null){
+            return ReturnMessage.NOT_FOUND;
+        } if (item instanceof Food food){
+            player.eat(food);
+            return ReturnMessage.OK;
+        }else {
+            return ReturnMessage.CANT;
+        }
+
+    }*/
+
+
+   /* public void ReturnMessage(String foodName) {
         NOT_FOUND;
         OK;
         CANT;
-    }
 
-     */
+    }*/
+
 
 }

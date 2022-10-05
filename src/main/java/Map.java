@@ -50,7 +50,7 @@ public class Map {
         cabin.setSouth(hill);
         cabin.addItem(jacket);
         cabin.addItem(flashLight);
-        cabin.addItem(new Food("Apple","This apple looks like it have just been picked, as it is in perfect condition", 10));
+        cabin.addItem(new Food("apple","This apple looks like it have just been picked, as it is in perfect condition", 10));
 
 
         forest.setEast(gateToVillage);
@@ -82,8 +82,8 @@ public class Map {
         theLake.setEast(theHouse);
         theLake.addItem(divingGear);
         theLake.addItem(new Food("small bag of nuts","a healthy snack for adventures and the locals in the nearby village",11));
-        theLake.addItem(new Food("Big apple","This apple is unusually big, but it just makes it looks more tasty",20));
-        theLake.addItem(new Food("Rotten half alive crab","This crab seems to be almost dead but when you look at it," +
+        theLake.addItem(new Food("big apple","This apple is unusually big, but it just makes it looks more tasty",20));
+        theLake.addItem(new Food("rotten half alive crab","This crab seems to be almost dead but when you look at it," +
                 "you get an unexplainable urge to consume it, even though you know you shouldnt",-12));
         theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",2));
 
@@ -91,8 +91,8 @@ public class Map {
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);
         theHouse.addItem(note);
-        theHouse.addItem(new Food("Rotten Fish","This fish is rotten and smelly, you shouldnt eat it",-4));
-        theHouse.addItem(new Food("Abandoned grilled chicken wing ","its just a normal grilled chicken wing ",30));
+        theHouse.addItem(new Food("rotten Fish","This fish is rotten and smelly, you shouldnt eat it",-4));
+        theHouse.addItem(new Food("abandoned grilled chicken wing ","its just a normal grilled chicken wing ",30));
 
 
         startRoom = cabin;

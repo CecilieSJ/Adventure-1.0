@@ -78,7 +78,7 @@ public class UserInterFace {
                     break;
 
                 case "health":
-                    System.out.println(adventure.getPlayerhealth());
+                    System.out.println(adventure.getLife());
                     break;
 
 

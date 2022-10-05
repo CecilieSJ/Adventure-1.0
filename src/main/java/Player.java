@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Player{
+public class Player {
 
     private Room currentRoom;
     private int life = 100;
@@ -41,6 +41,7 @@ public class Player{
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
+
     public boolean move(char direction) {
         Room requestedRoom = null;
 
@@ -65,25 +66,24 @@ public class Player{
     public int getLife() {
         return life;
     }
+/*
+    public int addHealth(int change) {
+      //  this.life = life;
+        //life += change;
+        return getLife() + health();
 
-    public void setLife(int life) {
-        this.life = life;
     }
 
-    public void addToHealth(int healthValue){
-        this.life += healthValue;
-        if(life>100){
-            this.life = 100;
-        }
-        if(life<0){
-            this.life = 0;
-        }
-    }
+    private int gethealth() {
+        return health();
+    }*/
 
-    public int eat(Food food){
-        addToHealth(food.getHealth());
-        return food.getHealth();
-    }
+
+
+
+
+
+
 
 
     /*public Item eat(Food food) {

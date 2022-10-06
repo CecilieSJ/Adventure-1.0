@@ -38,7 +38,7 @@ public class Map {
 
 
         Item jacket = new Item("jacket", "It is always good to bring a jacket!");
-        Item flashLight = new Item("flashlight", " Without a flashlight, you can not go fare.");
+        Item flashLight = new Item("flashlight", " Without a flashlight, you can not go fare!");
         Item key = new Item("key", " The key is absolutely necessary ");
         Item coin = new Item("coin", " Pure luck to find a coin");
         Item note = new Item("note'Go to the lake and you'll find what you seek'", " If the note is there, maybe you should listen");
@@ -81,17 +81,17 @@ public class Map {
         theLake.setWest(payphone);
         theLake.setEast(theHouse);
         theLake.addItem(divingGear);
-        theLake.addItem(new Food("small bag of nuts","a healthy snack for adventures and the locals in the nearby village",11));
-        theLake.addItem(new Food("big apple","This apple is unusually big, but it just makes it looks more tasty",20));
-        theLake.addItem(new Food("crab","This crab seems to be almost dead but when you look at it, you get an unexplainable urge to consume it, even though you know you should not",-12));
-        theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",2));
+        theLake.addItem(new Food("nuts","a little bag of healthy snacks for an adventure and the locals in the nearby village",11));
+        theLake.addItem(new Food("orange","This orange is unusually big, but it just makes it looks more tasty",30));
+        theLake.addItem(new Food("crab","This crab seems to be almost dead but when you look at it, you get an unexplainable urge to consume it, even though you know you should not",-100));
+        theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",-12));
 
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);
         theHouse.addItem(note);
-        theHouse.addItem(new Food("rotten Fish","This fish is rotten and smelly, you shouldnt eat it",-4));
-        theHouse.addItem(new Food("abandoned grilled chicken wing ","its just a normal grilled chicken wing ",30));
+        theHouse.addItem(new Food("fish","This fish is rotten and smelly, you shouldnt eat it",-95));
+        theHouse.addItem(new Food("chicken ","its just a normal grilled chicken wing. It has just been abandoned for a little while. 10 second rule",-25));
 
 
         startRoom = cabin;

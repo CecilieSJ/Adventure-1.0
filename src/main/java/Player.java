@@ -65,43 +65,33 @@ public class Player {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public int getLife() {
         return life;
     }
-
     public void setLife(int life) {
         this.life = life;
     }
 
 
-    public ReturnMessage eat(Food foodName) {
+    /*public ReturnMessage eat(Food foodName) {
         Item eatItem = takeItem(foodName.getItemName());
         if(eatItem == null){
             return ReturnMessage.NOT_FOUND;
         } if (eatItem instanceof Food){
-            inventory.remove(foodName);
+           inventory.remove(foodName);
             return ReturnMessage.OK;
         }else {
             return ReturnMessage.CANT;
         }
-
+         public int addLife() {
+        return getHealth() + getLife();
     }
+    public void setHealth(int health) {
+        this.health = health;}
+
+    }*/
 
 
 
 }
 
- /*   public void heal(int healAmount){
-        if (hp + healAmount < HP_MAX )
-            hp += healAmount;
-        else hp = HP_MAX;
-    }
-    public void damage(int damageAmount){
-        if (hp - damageAmount <= 0)
-            dead = true;
-        hp -= damageAmount;
-    }*/

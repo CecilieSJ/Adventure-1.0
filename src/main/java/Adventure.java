@@ -22,10 +22,6 @@ public class Adventure {
         return player;
     }
 
-    public int getHealthPoints() {
-        return player.getHealth();
-    }
-
     public int addLife() {
         return player.getHealth() + player.getLife();
     }
@@ -38,7 +34,6 @@ public class Adventure {
         return map.getStartRoom();
     }
 
-
     public boolean go(String userChoice) {
         return player.move(userChoice.charAt(0));
     }
@@ -49,19 +44,25 @@ public class Adventure {
 
 
 
-    public ReturnMessage eat(String foodName) {
-        Item item = player.takeItem(foodName);
-        if (item == null) {
-            return ReturnMessage.NOT_FOUND;
-        }
-        if (item instanceof Food food) {
-            player.eat(food);
-            addLife();
-            return ReturnMessage.OK;
-        } else {
-            return ReturnMessage.CANT;
-        }
-    }
+
+
+    /* public ReturnMessage eat(String foodName) {
+         Item itemInventory = player.takeItem(foodName);
+         if (itemInventory == null) {
+             return ReturnMessage.NOT_FOUND;
+         }
+         if (itemInventory instanceof Food food) {
+             player.eat(food);
+             int points = player.getLife() + player.getHealth();
+             getPlayer().setLife(points);
+             return ReturnMessage.OK;
+         } else {
+             return ReturnMessage.CANT;
+         }
+     }
+*/
+
+
 
 
 }

@@ -5,7 +5,6 @@ public class UserInterFace {
     Scanner scan = new Scanner(System.in);
     Adventure adventure = new Adventure();
 
-
     public void startMenu() {
         boolean isRunning = true;
         System.out.println("Welcome to The Adventure Game!");
@@ -13,10 +12,10 @@ public class UserInterFace {
         while (isRunning) {
             String direction = scan.nextLine().toLowerCase();
             String[] userInputs = direction.split(" ");
-//int space = command.indexOf();
-//String secondWord = space>0 ? command.substring(space + 1).trim :null;
-            String command = userInputs[0];
 
+            String command = userInputs[0];
+            // int space = command.indexOf(' ');
+            //String secondWord = space > 0 ? command.substring(space + 1).trim() : null;
 
             String userChoice = "";
             if (userInputs.length > 1) {
@@ -25,7 +24,6 @@ public class UserInterFace {
 
 
             switch (command) {
-
                 case "go":
 
                     boolean succes = true;
@@ -86,13 +84,13 @@ public class UserInterFace {
                     break;
 
                 case "eat":
-                   /* Item roomInventory = adventure.takeItem(userChoice);
+                    Item roomInventory = adventure.takeItem(userChoice);
                     ArrayList<Item> itemInInventory = adventure.getPlayer().getInventory();
 
                     if (roomInventory != null) {
                         if (roomInventory instanceof Food) {
-                            System.out.println("You ate the " + roomInventory.getItemName() + "Health " + ((Food) roomInventory).getHealth());
-                            //TODO: Add health points
+                            System.out.println("You ate the " + roomInventory.getItemName() + "\nHealth " + ((Food) roomInventory).getHealth());
+
                             int points = ((Food) roomInventory).getHealth() + adventure.addLife();
                             adventure.getPlayer().setLife(points);
                         } else {
@@ -101,13 +99,16 @@ public class UserInterFace {
                     } else if (itemInInventory == null) {
                         System.out.println("There is nothing with that name");
 
-                        break;*/
+                        break;
 
 
 
-                   /* String foodName = secondword;
-                    result = adventure.eat(foodName);
-                    switch (command) {
+
+
+
+                    /*String foodName = userChoice;
+                    ReturnMessage result = adventure.eat(foodName);
+                    switch (result) {
                         case NOT_FOUND:
                             System.out.println("There is no food item with that name");
                             break;
@@ -119,12 +120,13 @@ public class UserInterFace {
                             break;
                         default:
                             System.out.println("");
-                    }
-*/
+                    }*/
 
+
+                    }
             }
+
         }
 
     }
-
 }

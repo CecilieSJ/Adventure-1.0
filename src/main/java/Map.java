@@ -42,7 +42,7 @@ public class Map {
         Item key = new Item("key", " The key is absolutely necessary ");
         Item coin = new Item("coin", " Pure luck to find a coin");
         Item note = new Item("note'Go to the lake and you'll find what you seek'", " If the note is there, maybe you should listen");
-        Item divingGear = new Item("diving gear", " Well you need to lean one day. Might as well be now.");
+        Item divingGear = new Item("diving gear", " Well you need to learn one day. Might as well be now.");
 
 
 
@@ -51,7 +51,7 @@ public class Map {
         cabin.addItem(jacket);
         cabin.addItem(flashLight);
         cabin.addItem(new Food("apple","This apple looks like it have just been picked, as it is in perfect condition", 10));
-
+        cabin.addItem(new Weapon("bottle","a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used","Melee weapon",1));
 
         forest.setEast(gateToVillage);
         forest.setWest(cabin);
@@ -85,7 +85,8 @@ public class Map {
         theLake.addItem(new Food("orange","This orange is unusually big, but it just makes it looks more tasty",30));
         theLake.addItem(new Food("crab","This crab seems to be almost dead but when you look at it, you get an unexplainable urge to consume it, even though you know you should not",-100));
         theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",-12));
-        theLake.addItem(new Weapon("","","",150));
+        theLake.addItem(new Weapon("sword","a long sword that looks heavy but once you try to hold it, it isnt heavy at all","Melee Weapon",150));
+        theLake.addItem(new Weapon("staff","a normal wooden staff","Melee Weapon",25));
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);

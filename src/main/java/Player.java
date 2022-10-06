@@ -8,6 +8,7 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>();
 
 
+    
     public Item takeItem(String itemName) {
         for (Item item : currentRoom.getItemList()) {
             if (item.getItemName().equals(itemName)) {
@@ -43,6 +44,8 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
+
+
     public boolean move(char direction) {
         Room requestedRoom = null;
 
@@ -76,7 +79,6 @@ public class Player {
         this.life = life;
     }
 
-
     /*public ReturnMessage eat(Food foodName) {
         Item eatItem = takeItem(foodName.getItemName());
         if(eatItem == null){
@@ -97,4 +99,3 @@ public class Player {
 
 
 }
-

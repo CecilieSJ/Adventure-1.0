@@ -83,6 +83,22 @@ public class UserInterFace {
                     System.out.println("Your inventory contains: " + inventory);
                     break;
 
+                case "equip", "eq":
+                    Item Inventory = adventure.takeItem(userChoice);
+                    ArrayList<Item> weaponInInventory = adventure.getPlayer().getInventory();
+                    if (weaponInInventory != null){
+                        if (Inventory instanceof Weapon) {
+                            System.out.println("You have now equiped " + Inventory.getItemName());
+                        } else {
+                            System.out.println(Inventory.getItemName() + " is not a weapon");
+                        }
+
+                    }
+                    break;
+
+                case "attack":
+                    break;
+
                 case "eat":
                     Item roomInventory = adventure.takeItem(userChoice);
                     ArrayList<Item> itemInInventory = adventure.getPlayer().getInventory();
@@ -100,7 +116,6 @@ public class UserInterFace {
                         System.out.println("There is nothing with that name");
 
                         break;
-
 
 
 
@@ -124,9 +139,10 @@ public class UserInterFace {
 
 
                     }
+
+
             }
 
         }
-
     }
 }

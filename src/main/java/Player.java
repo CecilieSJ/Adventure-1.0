@@ -18,6 +18,7 @@ public class Player {
         }
         return null;
     }
+
     public Item dropItem(String itemName) {
         for (Item item : inventory) {
             if (item.getItemName().equals(itemName)) {
@@ -29,6 +30,7 @@ public class Player {
         }
         return null;
     }
+
     public ArrayList<Item> getInventory() {
         return inventory;
     }
@@ -36,6 +38,7 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
@@ -68,6 +71,7 @@ public class Player {
     public int getLife() {
         return life;
     }
+
     public void setLife(int life) {
         this.life = life;
     }
@@ -90,7 +94,6 @@ public class Player {
         this.health = health;}
 
     }*/
-
 
 
 }

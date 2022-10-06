@@ -51,6 +51,7 @@ public class Map {
         cabin.addItem(jacket);
         cabin.addItem(flashLight);
         cabin.addItem(new Food("apple","This apple looks like it have just been picked, as it is in perfect condition", 10));
+        cabin.addItem(new Weapon("hhh","hfhf","meleeWeapon",150));
 
 
         forest.setEast(gateToVillage);
@@ -85,7 +86,7 @@ public class Map {
         theLake.addItem(new Food("orange","This orange is unusually big, but it just makes it looks more tasty",30));
         theLake.addItem(new Food("crab","This crab seems to be almost dead but when you look at it, you get an unexplainable urge to consume it, even though you know you should not",-100));
         theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",-12));
-        theLake.addItem(new Weapon("","","",150));
+        theLake.addItem(new Weapon("gun","hfhf","meleeWeapon",150));
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);

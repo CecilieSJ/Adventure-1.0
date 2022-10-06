@@ -5,7 +5,9 @@ public class Player {
     private Room currentRoom;
     private int health;
     private int life = 100;
+    private String weapon;
     private ArrayList<Item> inventory = new ArrayList<>();
+
 
 
     
@@ -44,8 +46,6 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
-
-
     public boolean move(char direction) {
         Room requestedRoom = null;
 
@@ -79,6 +79,10 @@ public class Player {
         this.life = life;
     }
 
+    public String getWeapon(){
+        return weapon;
+
+    }
     /*public ReturnMessage eat(Food foodName) {
         Item eatItem = takeItem(foodName.getItemName());
         if(eatItem == null){

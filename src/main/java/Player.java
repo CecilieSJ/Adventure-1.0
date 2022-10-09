@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
+    private Weapon currentWeapon;
     private int health;
     private int life = 100;
     private String weapon;
@@ -20,7 +21,6 @@ public class Player {
 
 
 
-    
     public Item takeItem(String itemName) {
         for (Item item : currentRoom.getItemList()) {
             if (item.getItemName().equals(itemName)) {
@@ -56,6 +56,8 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
+
+
     public boolean move(char direction) {
         Room requestedRoom = null;
 
@@ -89,27 +91,32 @@ public class Player {
         this.life = life;
     }
 
+    public void equip(Weapon weapon) {
+        currentWeapon = weapon;
+    }
+
+    public void attack() {
+    }
+
     public String getWeapon(){
         return weapon;
 
     }
     /*public ReturnMessage eat(Food foodName) {
         Item eatItem = takeItem(foodName.getItemName());
-        if(eatItem == null){
+        if (eatItem == null) {
             return ReturnMessage.NOT_FOUND;
-        } if (eatItem instanceof Food){
-           inventory.remove(foodName);
+        }
+        if (eatItem instanceof Food) {
+            inventory.remove(foodName);
             return ReturnMessage.OK;
-        }else {
+        } else {
             return ReturnMessage.CANT;
         }
-         public int addLife() {
-        return getHealth() + getLife();
+
+     */
+
     }
-    public void setHealth(int health) {
-        this.health = health;}
-
-    }*/
 
 
-}
+

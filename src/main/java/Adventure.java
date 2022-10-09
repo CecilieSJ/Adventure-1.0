@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Adventure {
     private Map map = new Map();
     private Player player = new Player();
-    private ArrayList<Item> weaponList;
+
 
     public Adventure() {
         player.setCurrentRoom(map.getStartRoom());
@@ -41,6 +41,9 @@ public class Adventure {
     public ArrayList<Item> allInventory() {
         return player.getInventory();
     }
+    public ArrayList<Item> allWeaponList() {
+        return player.getWeaponList();
+    }
 
 
     public String getWeapon() {
@@ -48,14 +51,7 @@ public class Adventure {
     }
 
 
-    public ArrayList<Item> getWeaponList() {
-        for (Item ll : allInventory())
-            if (ll instanceof Weapon)
-            weaponList.add(ll);
 
-
-        return weaponList;
-    }
 
 
 }

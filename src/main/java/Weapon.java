@@ -1,12 +1,11 @@
 public class Weapon extends Item{
 
     private String weapon;
-    private int canUse;
+    private int damage;
 
-    public Weapon(String itemName, String itemDescription,String weapon, int canUse){
+    public Weapon(String itemName, String itemDescription,String weapon, int damage){
         super(itemName, itemDescription);
         this.weapon = weapon;
-        this.canUse = canUse;
     }
 
     public String getWeapon(){

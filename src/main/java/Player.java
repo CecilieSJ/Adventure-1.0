@@ -7,6 +7,16 @@ public class Player {
     private int life = 100;
     private String weapon;
     private ArrayList<Item> inventory = new ArrayList<>();
+    private ArrayList<Item> weaponList = new ArrayList<>();
+
+    public ArrayList<Item> getWeaponList() {
+        for (Item ll : inventory)
+            if (ll instanceof Weapon)
+                weaponList.add(ll);
+
+
+        return weaponList;
+    }
 
 
 

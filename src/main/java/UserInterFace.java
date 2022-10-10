@@ -85,7 +85,7 @@ public class UserInterFace {
 
                 case "equip", "eq":
                     System.out.println(adventure.allWeaponList());
-                    /*Item item = adventure.takeItem(userChoice);
+                    Item item = adventure.takeItem(userChoice);
                     ArrayList<Item> weaponInInventory = adventure.getPlayer().getInventory();
                     if (weaponInInventory != null){
                         if (item instanceof Weapon weapon) {
@@ -95,12 +95,14 @@ public class UserInterFace {
                             System.out.println(item.getItemName() + " is not a weapon");
                         }
 
-                    }*/  break;
+                    }  break;
 
 
 
                 case "attack":
                     adventure.getPlayer().attack();
+
+                    System.out.println("You attacked");
 
 
                     break;

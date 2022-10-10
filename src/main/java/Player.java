@@ -20,7 +20,6 @@ public class Player {
     }
 
 
-
     public Item takeItem(String itemName) {
         for (Item item : currentRoom.getItemList()) {
             if (item.getItemName().equals(itemName)) {
@@ -57,7 +56,6 @@ public class Player {
     }
 
 
-
     public boolean move(char direction) {
         Room requestedRoom = null;
 
@@ -86,6 +84,7 @@ public class Player {
     public int getLife() {
         return life;
     }
+
 
     public void setLife(int life) {
         this.life = life;

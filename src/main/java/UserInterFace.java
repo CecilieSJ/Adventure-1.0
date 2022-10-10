@@ -43,7 +43,11 @@ public class UserInterFace {
                     break;
 
                 case "help", "h":
-                    System.out.print("Help information");
+                    System.out.print("Help information" + "\nType: exit or ex to exit the game" + "\ntype: look, l to look in the room that you are in" +
+                            "\ntype: take or pick up to take or pick up an item " + "type: drop to drop an item that you have in your inventory" +
+                            "\ntype: health to see your current health" + "type: inv, invent or inventory to see what you have in your inventory" +
+                            "\ntype: equip or eq to equip the wearable or weapon that you have collected" +
+                            "\ntype attack to attack an enemy " + "type eat to eat a food item");
                     //TODO indsæt hjælpinfo til bruger.
                     break;
 

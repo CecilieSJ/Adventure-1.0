@@ -48,7 +48,6 @@ public class UserInterFace {
                             "\ntype: health to see your current health" + "type: inv, invent or inventory to see what you have in your inventory" +
                             "\ntype: equip or eq to equip the wearable or weapon that you have collected" +
                             "\ntype attack to attack an enemy " + "type eat to eat a food item");
-                    //TODO indsæt hjælpinfo til bruger.
                     break;
 
                 case "look", "l":
@@ -89,7 +88,7 @@ public class UserInterFace {
 
                 case "equip", "eq":
                     System.out.println(adventure.allWeaponList());
-                    Item item = adventure.takeItem(userChoice);
+                    /*Item item = adventure.takeItem(userChoice);
                     ArrayList<Item> weaponInInventory = adventure.getPlayer().getInventory();
                     if (weaponInInventory != null){
                         if (item instanceof Weapon weapon) {
@@ -99,15 +98,18 @@ public class UserInterFace {
                             System.out.println(item.getItemName() + " is not a weapon");
                         }
 
-                    }  break;
+
+*/
+                    break;
+
+
 
 
 
                 case "attack":
                     adventure.getPlayer().attack();
 
-                    System.out.println("You attacked");
-
+                    System.out.println("You attacked with " + adventure.getPlayer().getWeapon());
 
                     break;
 

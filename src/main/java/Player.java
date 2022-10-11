@@ -10,7 +10,6 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>();
     private ArrayList<Item> weaponList = new ArrayList<>();
 
-
     public ArrayList<Item> getWeaponList() {
         for (Item ll : inventory)
             if (ll instanceof Weapon)
@@ -95,16 +94,12 @@ public class Player {
         currentWeapon = weapon;
     }
 
-
     public void attack() {
-        currentWeapon.getWeapon();
-    }
 
+    }
 
     public String getWeapon(){
         return weapon;
-
-    }
 
     }
     /*public ReturnMessage eat(Food foodName) {
@@ -121,7 +116,7 @@ public class Player {
 
      */
 
-
+    }
 
 
 

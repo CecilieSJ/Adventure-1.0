@@ -10,6 +10,10 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<>();
     private ArrayList<Item> weaponList = new ArrayList<>();
 
+    public static String CurrentWeapon() {
+        return CurrentWeapon();
+    }
+
     public ArrayList<Item> getWeaponList() {
         for (Item ll : inventory)
             if (ll instanceof Weapon)
@@ -91,15 +95,21 @@ public class Player {
     }
 
     public void equip(Weapon weapon) {
-        currentWeapon = weapon;
+        currentWeapon = currentWeapon;
     }
+
 
     public void attack() {
-
+        CurrentWeapon();
     }
+
 
     public String getWeapon(){
         return weapon;
+
+    }
+    public void setCurrentWeapon(Weapon currentWeapon){
+        this.currentWeapon = currentWeapon;
 
     }
     /*public ReturnMessage eat(Food foodName) {

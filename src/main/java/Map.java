@@ -54,6 +54,7 @@ public class Map {
         cabin.addItem(new Weapon("bottle","a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used","Melee weapon",1));
         cabin.addEnemy(new Enemy("prut", "er super sej", 10, 20));
 
+
         forest.setEast(gateToVillage);
         forest.setWest(cabin);
 
@@ -88,6 +89,7 @@ public class Map {
         theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",-12));
         theLake.addItem(new Weapon("sword","a long sword that looks heavy but once you try to hold it, it isnt heavy at all","Melee Weapon",150));
         theLake.addItem(new Weapon("staff","a normal wooden staff","Melee Weapon",25));
+        theLake.addEnemy(new Enemy("Troll","A fairly sized club made of wood. An ugly troll blocks you from what you seek which is your escape from this place",200,15));
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);

@@ -105,6 +105,16 @@ public class Player {
 
     }
 
+    public boolean death(){
+        if (life <= 0){
+            System.out.println("You have been killed and the game is now over");
+            System.exit(0);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
 

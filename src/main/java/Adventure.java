@@ -52,13 +52,20 @@ public class Adventure {
         return player.getWeapon();
     }
 
-    public String CurrentWeapon(){
-        return CurrentWeapon();
+    public Item CurrentWeapon(Weapon weapon){
+        return player.equip(weapon);
     }
     
 
 
 
+public Item getEquippedItem(String itemName){
+        return player.getEquippedItem(itemName);
+}
+
+    public String attack(String itemName) {
+        return player.attack(itemName);
+    }
 
 
 }

@@ -92,17 +92,46 @@ public class Player {
         this.life = life;
     }
 
-    public void equip(Weapon weapon) {
-        currentWeapon = weapon;
+
+    public Item equip(Weapon weapon) {
+        return currentWeapon;
     }
 
-    public void attack() {
+
+    public String attack(String itemName) {
+        Item weapon = currentWeapon;
+        if(weapon != null){
+            if(weapon instanceof MeleeWeapon meleeWeapon){
+                (meleeWeapon).getDamage();
+                return "Attack Melee";
+            } else if (weapon instanceof RangedWeapon rangedWeapon && rangedWeapon.canUse()) {
+                (rangedWeapon).getDamage();
+                (rangedWeapon).useAmmo();
+                return "Attack rangedweapon";
+
+            }else{
+                return "No ammo";
+            }
+        }if (currentWeapon == null){
+            return "No weapon";
+        }
+        return null;
 
     }
 
     public String getWeapon() {
         return weapon;
 
+    }
+
+    public Item getEquippedItem(String name){
+        for(Item item : weaponList){
+            if (item.getItemName().equals(name)) {
+                item = currentWeapon;
+                return currentWeapon;
+            }
+        }
+        return null;
     }
 
 

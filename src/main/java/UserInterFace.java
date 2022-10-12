@@ -86,28 +86,37 @@ public class UserInterFace {
                 case "equip", "eq":
                     Item itemEq = adventure.takeItem(userChoice);
                     //ArrayList<Item> weaponInInventory = adventure.getPlayer().getInventory();
-                    if (itemEq != null){
+                    if (itemEq != null) {
                         if (itemEq instanceof Weapon weapon) {
-                            System.out.println("You have now equipped " +((Weapon) itemEq).getWeapon());
+                            System.out.println("You have now equipped " + ((Weapon) itemEq).getWeapon());
                             adventure.getPlayer().equip(weapon);
                         } else {
-                            System.out.println( "is not a weapon");
+                            System.out.println("is not a weapon");
                         }
 
                     } else if (itemEq == null) { //Do not work
                         System.out.println("There is nothing with that name");
 
-                    }  break;
-
-
-
+                    }
+                    break;
 
 
                 case "attack":
-                    adventure.getPlayer().attack();
+                 // Item weapon = adventure.getEquippedItem(adventure.CurrentWeapon();
+                   Item weapon = adventure.getEquippedItem(adventure.getWeapon());
+                    if ( weapon instanceof MeleeWeapon ) {
+                        System.out.println("Melee attack ");
+                    }else if(weapon instanceof RangedWeapon){
+                        System.out.println("Attack rangedweapon ");
+                    }else if(weapon == null){
+                        System.out.println("No  weapon");
+                    }else{
+                        System.out.println("fail");
+                    }
 
 
                     break;
+
 
                 case "eat":
                     Item roomInventory = adventure.takeItem(userChoice);
@@ -126,7 +135,7 @@ public class UserInterFace {
                         System.out.println("There is nothing with that name");
 
                     }
-                        break;
+                    break;
 
 
 
@@ -150,9 +159,6 @@ public class UserInterFace {
                     }
 
                      */
-
-
-
 
 
             }

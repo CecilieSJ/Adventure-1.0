@@ -12,4 +12,7 @@ public class Weapon extends Item{
         return weapon;
     }
 
+    public int getDamage(){
+        return damage;
+    }
 }

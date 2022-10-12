@@ -52,6 +52,7 @@ public class Map {
         cabin.addItem(flashLight);
         cabin.addItem(new Food("apple","This apple looks like it have just been picked, as it is in perfect condition", 10));
         cabin.addItem(new Weapon("bottle","a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used","Melee weapon",1));
+        cabin.addEnemy(new Enemy("prut", "er super sej", 10, 20));
 
         forest.setEast(gateToVillage);
         forest.setWest(cabin);

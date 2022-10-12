@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import javax.xml.namespace.QName;
 
 public class Map {
 
@@ -8,6 +8,7 @@ public class Map {
         setRooms();
     }
 
+    //Rooms
     private Room cabin = new Room("Cabin", "Something startled you in your sleep and you woke up with shock. You find yourself in a cabin fare fare away from everything. " +
             "Even with only a messy bed and an old chair it feels like the walls are coming down on you.  The smell gives you an itch nose. How you got there is a big mystery you have got to solve." +
             "You reaching out for the cold doorknob that sends chills down your spine and you slowly open the door. ");
@@ -39,8 +40,7 @@ public class Map {
             "and the way that you came from.");
 
 
-
- //Items
+    //Items
     private Item jacket = new Item("jacket", "It is always good to bring a jacket!");
     private Item flashLight = new Item("flashlight", " Without a flashlight, you can not go fare!");
     private Item key = new Item("key", " The key is absolutely necessary ");
@@ -53,17 +53,23 @@ public class Map {
     //RangedWeapon lort = new RangedWeapon("lort", "ff", "hh", 22,22);
 
     //Enemies
-    private Enemy prut = new Enemy("prut", "er super sej", 10, 20);
+    private Enemy goat = new Enemy("goat ", "Watch out for the horns", 10, 20);
+    private Enemy troll = new Enemy("troll", "A fairly sized club made of wood. An ugly troll blocks you from what you seek which is your escape from this place", 200, 15);
+    private Enemy soldier = new Enemy("soldier ", " kill him before he kills you", 50, 70);
+
 
     public void setRooms() {
+
+        goat.setRoom(cabin);
+        cabin.addEnemy(goat);
         cabin.setEast(forest);
         cabin.setSouth(hill);
         cabin.addItem(jacket);
         cabin.addItem(flashLight);
         cabin.addItem(new Food("apple", "This apple looks like it have just been picked, as it is in perfect condition", 10));
         cabin.addItem(new MeleeWeapon("bottle", "a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used", "Melee weapon", 1));
-        cabin.addEnemy(new Enemy("prut", "er super sej", 10, 20));
-        prut.setRoom(cabin);
+
+
         cabin.addItem(new RangedWeapon("numse", "a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used", "Ranged Weapon", 1, 100));
 
 
@@ -90,6 +96,8 @@ public class Map {
         payphone.setEast(theLake);
 
 
+        troll.setRoom(theLake);
+        theLake.addEnemy(troll);
         theLake.setNorth(tainStation);
         theLake.setWest(payphone);
         theLake.setEast(theHouse);
@@ -100,8 +108,10 @@ public class Map {
         theLake.addItem(new Food("seaweed", "A small bundle of seaweed that has a salty smell to it and probably salty taste as well", -12));
         theLake.addItem(new MeleeWeapon("sword", "a long sword that looks heavy but once you try to hold it, it isnt heavy at all", "Melee Weapon", 150));
         theLake.addItem(new MeleeWeapon("staff", "a normal wooden staff", "Melee Weapon", 25));
-        theLake.addEnemy(new Enemy("Troll", "A fairly sized club made of wood. An ugly troll blocks you from what you seek which is your escape from this place", 200, 15));
 
+
+        soldier.setRoom(theHouse);
+        theHouse.addEnemy(soldier);
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);
         theHouse.addItem(note);

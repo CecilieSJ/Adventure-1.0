@@ -7,11 +7,13 @@ public class Enemy {
     private Room room;
 
 
+
     public Enemy(String enemyName, String enemyDescription, int enemyHealth, int enemyDamage){
         this.health = enemyHealth;
         this.enemyName = enemyName;
         this.enemyDescription = enemyDescription;
         this.enemyDamage = enemyDamage;
+
 
     }
 

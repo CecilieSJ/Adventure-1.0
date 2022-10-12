@@ -65,11 +65,9 @@ public class Room {
     public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
-
     public void addEnemy(Enemy enemy) {
         enemies.add(enemy);
     }
-
     public Enemy removeEnemy(String name) {
         for (Enemy enemy : enemies) {
             if (enemy.getEnemyName().equals(name)) {

@@ -10,21 +10,8 @@ public class Player {
     private Weapon currentWeapon;
     private int health;
     private int life = 100;
-    private String weapon;
     private ArrayList<Item> inventory = new ArrayList<>();
-    // private ArrayList<Item> weaponList = new ArrayList<>();
-
-
-
-  /*  public ArrayList<Item> getWeaponList() {
-        for (Item ll : inventory)
-            if (ll instanceof Weapon)
-                weaponList.add(ll);
-
-
-        return weaponList;
-
-    }*/
+    private ArrayList<Enemy> enemies = new ArrayList<>();
 
 
     public Item takeItem(String itemName) {
@@ -52,6 +39,10 @@ public class Player {
 
     public ArrayList<Item> getInventory() {
         return inventory;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
     }
 
     public Room getCurrentRoom() {
@@ -94,23 +85,13 @@ public class Player {
     public void setLife(int life) {
         this.life = life;
     }
+
     public int addLife() {
         return getHealth() + getLife();
     }
+
     public void currentHealth(int damage) {
         health -= damage;
-    }
-
-
-
-   /* public void setCurrentWeapon() {
-        this.currentWeapon = currentWeapon;
-    }*/
-
-
-    public String getWeapon() {
-        return weapon;
-
     }
 
     public Weapon getCurrentWeapon() {
@@ -127,9 +108,9 @@ public class Player {
     }
 
     public EquipItem equipItem(String itemName) {
-        Item invenstory = searchItemInv(itemName);
-        if (invenstory != null) {
-            if (invenstory instanceof Weapon weapon) {
+        Item inventory = searchItemInv(itemName);
+        if (inventory != null) {
+            if (inventory instanceof Weapon weapon) {
                 dropItem(itemName);
                 currentWeapon = weapon;
                 return EquipItem.EQUIPPING_WEAPON;
@@ -140,9 +121,11 @@ public class Player {
             return EquipItem.NOT_FOUND;
         }
     }
+
     public void removeWeapon(String itemName) {
         currentWeapon = null;
     }
+
     public EquipItem unEquipItem(String itemName) {
         Weapon equippedWeapon = currentWeapon;
         if (equippedWeapon != null) {
@@ -167,7 +150,7 @@ public class Player {
             weapon.useAmmo();
             enemy.currentHealth(weapon.getDamage());
             if (!enemy.death()) {
-                currentHealth(enemy.getEnemyDamage()); //getCurrentWeapon,getEn
+                currentHealth(enemy.getEnemyDamage());
             } else {
                 return Attack.KILLED_ENEMY;
             }
@@ -175,8 +158,16 @@ public class Player {
         } else {
             return Attack.NO_AMMO;
         }
+
     }
 
+    public boolean playerDeath() {
+        if (health <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
 
 

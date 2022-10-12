@@ -16,4 +16,5 @@ public abstract class Weapon extends Item{
 
     public abstract int getAmmunition();
     public abstract Boolean canUse();
+
 }

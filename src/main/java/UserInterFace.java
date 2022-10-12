@@ -53,7 +53,9 @@ public class UserInterFace {
                     break;
 
                 case "look", "l":
-                    System.out.println("In front of me i see " + adventure.getCurrentRoom().getDescription() + "\n" + adventure.getCurrentRoom().getItemList());
+                    System.out.println("In front of me i see " + adventure.getCurrentRoom().getDescription());
+                    System.out.println(adventure.getCurrentRoom().getItemList());
+                    System.out.println(adventure.getCurrentRoom().getEnemies());
                     break;
                 default:
                     System.out.println("Could not find that command");
@@ -116,28 +118,6 @@ public class UserInterFace {
                     break;
 
 
-                case "attack":
-
-                    Attack attack = adventure.attack(userChoice);
-                    Item searchForEquippedItem = adventure.getCurrentWeapon();
-                    Item roomInventory = adventure.searchItemInv(userChoice);
-
-
-                    if (attack == Attack.ATTACK_RANGE) {
-                        System.out.println("Range attack. " + ((RangedWeapon) searchForEquippedItem).getDamage() + " damage dealt");
-                        System.out.println(((RangedWeapon) searchForEquippedItem).getAmmunition() + " ammunition left");
-                    } else if (attack == Attack.ATTACK_MELEE) {
-                        System.out.println("Melee attack. " + ((MeleeWeapon) searchForEquippedItem).getDamage() + " damage dealt");
-                    } else if (attack == Attack.NO_AMMO) {
-                        System.out.println("No ammunition left");
-                    } else if (attack == Attack.NOT_EQUIPPED) {
-                        System.out.println("You dont have " + roomInventory + " equipped");
-                    } else {
-                        System.out.println("Invalid input (nothing matched your search)");
-                    }
-                    break;
-
-
                 case "eat":
                     Item roomInventory1 = adventure.takeItem(userChoice);
                     ArrayList<Item> itemInInventory = adventure.getPlayer().getInventory();
@@ -156,8 +136,29 @@ public class UserInterFace {
 
                     }
                     break;
+                case "attack", "shoot":
 
+                    Attack attack = adventure.attack(userChoice);
+                    Item searchForEquippedItem = adventure.getCurrentWeapon();
+                    Item roomInventory = adventure.searchItemInv(userChoice);
 
+                    if (attack == Attack.ATTACK_ENEMY) {
+                        System.out.println("Enemy attack. " + ((Weapon) searchForEquippedItem).getDamage() + " damage dealt");
+                        System.out.println(((Weapon) searchForEquippedItem).getAmmunition() + " shots left");
+                    } else if (attack == Attack.KILLED_ENEMY) {
+                        System.out.println(userChoice + " is dead");
+                    } else if (attack == Attack.NO_AMMO) {
+                        System.out.println("No ammunition left");
+                    } else if (attack == Attack.NOT_EQUIPPED) {
+                        System.out.println("You dont have " + roomInventory + " equipped");
+                    } else {
+                        System.out.println("Invalid input (nothing matched your search)");
+                        break;
+                    }
+            }
+        }
+    }
+}
 
 
 
@@ -183,9 +184,3 @@ public class UserInterFace {
                             System.out.println("Something went wrong. Please try again");
                     }*/
 
-
-            }
-
-        }
-    }
-}

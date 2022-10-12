@@ -11,8 +11,6 @@ public class Adventure {
 
     public Adventure() {
         player.setCurrentRoom(map.getStartRoom());
-        //player.setCurrentWeapon();
-
     }
 
 
@@ -40,6 +38,10 @@ public class Adventure {
         return map.getStartRoom();
     }
 
+    public Weapon getCurrentWeapon() {
+        return player.getCurrentWeapon();
+    }
+
     public boolean go(String userChoice) {
         return player.move(userChoice.charAt(0));
     }
@@ -48,24 +50,23 @@ public class Adventure {
         return player.getInventory();
     }
 
-
-
-    public String getWeapon() {
-        return player.getWeapon();
+    public ArrayList<Enemy> allEnemies() {
+        return player.getEnemies();
     }
 
-    public Weapon getCurrentWeapon() {
-        return player.getCurrentWeapon();
-    }
+
     public EquipItem equipItem(String itemName) {
         return player.equipItem(itemName);
     }
-    public Item searchItemInv(String itemName) {
-        return player.searchItemInv(itemName);
-    }
+
     public EquipItem unEquipItem(String itemName) {
         return player.unEquipItem(itemName);
     }
+
+    public Item searchItemInv(String itemName) {
+        return player.searchItemInv(itemName);
+    }
+
     public Attack attack(String itemName) {
         return player.attack(itemName);
     }

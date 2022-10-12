@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+import ENUM.Attack;
+import ENUM.EatFood;
+import ENUM.EquipItem;
+
 public class Player {
 
     private Room currentRoom;
@@ -8,10 +12,11 @@ public class Player {
     private int life = 100;
     private String weapon;
     private ArrayList<Item> inventory = new ArrayList<>();
-    private ArrayList<Item> weaponList = new ArrayList<>();
+    // private ArrayList<Item> weaponList = new ArrayList<>();
 
 
-    public ArrayList<Item> getWeaponList() {
+
+  /*  public ArrayList<Item> getWeaponList() {
         for (Item ll : inventory)
             if (ll instanceof Weapon)
                 weaponList.add(ll);
@@ -19,7 +24,7 @@ public class Player {
 
         return weaponList;
 
-    }
+    }*/
 
 
     public Item takeItem(String itemName) {
@@ -57,7 +62,6 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
-
     public boolean move(char direction) {
         Room requestedRoom = null;
 
@@ -87,70 +91,121 @@ public class Player {
         return life;
     }
 
-
     public void setLife(int life) {
         this.life = life;
     }
-
-
-    public Item equip(Weapon weapon) {
-        return currentWeapon;
+    public int addLife() {
+        return getHealth() + getLife();
+    }
+    public void currentHealth(int damage) {
+        health -= damage;
     }
 
 
-    public String attack(String itemName) {
-        Item weapon = currentWeapon;
-        if(weapon != null){
-            if(weapon instanceof MeleeWeapon meleeWeapon){
-                (meleeWeapon).getDamage();
-                return "Attack Melee";
-            } else if (weapon instanceof RangedWeapon rangedWeapon && rangedWeapon.canUse()) {
-                (rangedWeapon).getDamage();
-                (rangedWeapon).useAmmo();
-                return "Attack rangedweapon";
 
-            }else{
-                return "No ammo";
-            }
-        }if (currentWeapon == null){
-            return "No weapon";
-        }
-        return null;
+   /* public void setCurrentWeapon() {
+        this.currentWeapon = currentWeapon;
+    }*/
 
-    }
 
     public String getWeapon() {
         return weapon;
 
     }
 
-    public Item getEquippedItem(String name){
-        for(Item item : weaponList){
-            if (item.getItemName().equals(name)) {
-                item = currentWeapon;
-                return currentWeapon;
+    public Weapon getCurrentWeapon() {
+        return currentWeapon;
+    }
+
+    public Item searchItemInv(String itemName) {
+        for (Item item : inventory) {
+            if (item.getItemName().equals(itemName)) {
+                return item;
             }
         }
         return null;
     }
 
+    public EquipItem equipItem(String itemName) {
+        Item invenstory = searchItemInv(itemName);
+        if (invenstory != null) {
+            if (invenstory instanceof Weapon weapon) {
+                dropItem(itemName);
+                currentWeapon = weapon;
+                return EquipItem.EQUIPPING_WEAPON;
+            } else {
+                return EquipItem.NOT_WEAPON;
+            }
+        } else {
+            return EquipItem.NOT_FOUND;
+        }
+    }
+    public void removeWeapon(String itemName) {
+        currentWeapon = null;
+    }
+    public EquipItem unEquipItem(String itemName) {
+        Weapon equippedWeapon = currentWeapon;
+        if (equippedWeapon != null) {
+
+            removeWeapon(itemName);
+            inventory.add(equippedWeapon);
+            return EquipItem.UNEQUIP;
+        } else {
+            return EquipItem.NOT_FOUND;
+        }
+    }
+
+
+    public Attack attack(String itemName) {
+        Weapon weapon = currentWeapon;
+        Enemy enemy = currentRoom.searchEnemy(itemName);
+        if (weapon == null) {
+            return Attack.NOT_EQUIPPED;
+        } else if (enemy == null) {
+            return Attack.NO_ENEMY;
+        } else if (weapon.canUse()) {
+            weapon.useAmmo();
+            enemy.currentHealth(weapon.getDamage());                //Take damage metode skal i enemy
+            if (!enemy.death()) {
+                currentHealth(enemy.getEnemyDamage()); //getCurrentWeapon,getEn
+            } else {
+                return Attack.KILLED_ENEMY;
+            }
+            return Attack.ATTACK_ENEMY;
+        } else {
+            return Attack.NO_AMMO;
+        }
+    }
 
 }
 
 
-    /*public ReturnMessage eat(Food foodName) {
-        Item eatItem = takeItem(foodName.getItemName());
-        if (eatItem == null) {
-            return ReturnMessage.NOT_FOUND;
-        }
-        if (eatItem instanceof Food) {
-            inventory.remove(foodName);
-            return ReturnMessage.OK;
+       /* public EatFood eat(String foodName) {
+        Item roomInventory = takeItem(foodName);
+        ArrayList<Item> itemInInventory = getInventory();
+        if (roomInventory != null) {
+            if (roomInventory instanceof Food) {
+                int points = addLife();
+                setLife(points);
+                inventory.remove(foodName);
+
+                return EatFood.YOU_ATE_THE_FOOD;
+            } else {
+                return EatFood.CANT_EAT_THAT;
+            }
         } else {
-            return ReturnMessage.CANT;
+            return EatFood.NOT_FOUND;
+
         }
 
-     */
+    }*/
+
+
+
+
+
+
+
 
 
 

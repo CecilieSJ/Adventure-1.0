@@ -19,11 +19,10 @@ public class RangedWeapon extends Weapon {
         }
     }
 
-
+    @Override
     public void useAmmo() {
         ammunition--;
     }
-
 
 
 }

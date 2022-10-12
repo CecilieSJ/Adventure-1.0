@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ENUM.Attack;
+import ENUM.EatFood;
+import ENUM.EquipItem;
+
 public class UserInterFace {
     Scanner scan = new Scanner(System.in);
     Adventure adventure = new Adventure();
@@ -14,8 +18,6 @@ public class UserInterFace {
             String[] userInputs = direction.split(" ");
 
             String command = userInputs[0];
-            // int space = command.indexOf(' ');
-            //String secondWord = space > 0 ? command.substring(space + 1).trim() : null;
 
             String userChoice = "";
             if (userInputs.length > 1) {
@@ -43,12 +45,11 @@ public class UserInterFace {
                     break;
 
                 case "help", "h":
-                    System.out.print("Help information" + "\nType: exit or ex to exit the game" + "\ntype: look, l to look in the room that you are in" +
-                            "\ntype: take or pick up to take or pick up an item " + "type: drop to drop an item that you have in your inventory" +
+                    System.out.print("Help information" + "\nType: exit or ex to exit the game" + "\ntype: look or l, to look in the room that you are in" +
+                            "\ntype: take or pick up, to take an item " + "type: drop to drop an item that you have in your inventory" +
                             "\ntype: health to see your current health" + "type: inv, invent or inventory to see what you have in your inventory" +
-                            "\ntype: equip or eq to equip the wearable or weapon that you have collected" +
+                            "\ntype: equip or eq, to equip the wearable or weapon that you have collected" +
                             "\ntype attack to attack an enemy " + "type eat to eat a food item");
-                    //TODO indsæt hjælpinfo til bruger.
                     break;
 
                 case "look", "l":
@@ -88,52 +89,66 @@ public class UserInterFace {
                     break;
 
                 case "equip", "eq":
-                    Item itemEq = adventure.takeItem(userChoice);
-                    //ArrayList<Item> weaponInInventory = adventure.getPlayer().getInventory();
-                    if (itemEq != null) {
-                        if (itemEq instanceof Weapon weapon) {
-                            System.out.println("You have now equipped " + ((Weapon) itemEq).getWeapon());
-                            adventure.getPlayer().equip(weapon);
-                        } else {
-                            System.out.println("is not a weapon");
-                        }
+                    EquipItem equipItem = adventure.equipItem(userChoice);
+                    Item itemInPlayer = adventure.searchItemInv(userChoice);
+                    Item searchEquippedItem = adventure.getCurrentWeapon();
 
-                    } else if (itemEq == null) { //Do not work
-                        System.out.println("There is nothing with that name");
-
+                    if (equipItem == EquipItem.EQUIPPING_WEAPON) {
+                        System.out.println(searchEquippedItem + " equipped");
+                    } else if (equipItem == EquipItem.NOT_WEAPON) {
+                        System.out.println(itemInPlayer + " can not be equipped");
+                    } else if (equipItem == EquipItem.NOT_FOUND) {
+                        System.out.println("No item was found");
                     }
+
                     break;
+
+                case "unequip", "Unequip":
+                    EquipItem unEquipItem = adventure.unEquipItem(userChoice);
+                    Item inventory1 = adventure.searchItemInv(userChoice);
+
+                    if (unEquipItem == EquipItem.UNEQUIP) {
+                        System.out.println(inventory1 + " unequipped");
+                    } else if (unEquipItem == EquipItem.NOT_FOUND) {
+                        System.out.println(inventory1 + "unequipped");
+                    }
+
+                break;
 
 
                 case "attack":
-                 // Item weapon = adventure.getEquippedItem(adventure.CurrentWeapon();
-                   Item weapon = adventure.getEquippedItem(adventure.getWeapon());
-                    if ( weapon instanceof MeleeWeapon ) {
-                        System.out.println("Melee attack ");
-                    }else if(weapon instanceof RangedWeapon){
-                        System.out.println("Attack rangedweapon ");
-                    }else if(weapon == null){
-                        System.out.println("No  weapon");
-                    }else{
-                        System.out.println("fail");
+
+                    Attack attack = adventure.attack(userChoice);
+                    Item searchForEquippedItem = adventure.getCurrentWeapon();
+                    Item roomInventory = adventure.searchItemInv(userChoice);
+
+                    if (attack == Attack.ATTACK_MELEE) {
+                        System.out.println("Melee attack. " + ((MeleeWeapon) searchForEquippedItem).getDamage() + " damage dealt");
+                    } else if (attack == Attack.ATTACK_RANGE) {
+                        System.out.println("Range attack. " + ((RangedWeapon) searchForEquippedItem).getDamage() + " damage dealt");
+                        System.out.println(((RangedWeapon) searchForEquippedItem).getAmmunition() + " shots left");
+                    } else if (attack == Attack.NO_AMMO) {
+                        System.out.println("No ammunition left");
+                    } else if (attack == Attack.NOT_EQUIPPED) {
+                        System.out.println("You dont have " + roomInventory + " equipped");
+                    } else {
+                        System.out.println("Invalid input (nothing matched your search)");
                     }
-
-
                     break;
 
 
                 case "eat":
-                    Item roomInventory = adventure.takeItem(userChoice);
+                    Item roomInventory1 = adventure.takeItem(userChoice);
                     ArrayList<Item> itemInInventory = adventure.getPlayer().getInventory();
 
-                    if (roomInventory != null) {
-                        if (roomInventory instanceof Food) {
-                            System.out.println("You ate the " + roomInventory.getItemName() + "\nHealth " + ((Food) roomInventory).getHealth());
+                    if (roomInventory1 != null) {
+                        if (roomInventory1 instanceof Food) {
+                            System.out.println("You ate the " + roomInventory1.getItemName() + "\nHealth " + ((Food) roomInventory1).getHealth());
 
-                            int points = ((Food) roomInventory).getHealth() + adventure.addLife();
+                            int points = ((Food) roomInventory1).getHealth() + adventure.addLife();
                             adventure.getPlayer().setLife(points);
                         } else {
-                            System.out.println(roomInventory.getItemName() + " is not edible");
+                            System.out.println(roomInventory1.getItemName() + " is not edible");
                         }
                     } else if (itemInInventory == null) {
                         System.out.println("There is nothing with that name");
@@ -146,23 +161,26 @@ public class UserInterFace {
 
 
 
-                    /*String foodName = userChoice;
-                    ReturnMessage result = adventure.eat(foodName);
+
+
+                   /* String foodName = userChoice;
+                    Item roomInventory = adventure.takeItem(userChoice);
+                    EatFood result = adventure.eatFood(foodName);
                     switch (result) {
                         case NOT_FOUND:
                             System.out.println("There is no food item with that name");
                             break;
-                        case OK:
-                            System.out.println("jj");
+                        case YOU_ATE_THE_FOOD:
+                            System.out.println(roomInventory.getItemName()+ "\nHealth " + ((Food) roomInventory).getHealth());
+                            int points = ((Food) roomInventory).getHealth() + adventure.addLife();
+                            adventure.getPlayer().setLife(points);
                             break;
-                        case CANT:
+                        case CANT_EAT_THAT:
                             System.out.println("You cant eat that item");
                             break;
                         default:
-                            System.out.println("");
-                    }
-
-                     */
+                            System.out.println("Something went wrong. Please try again");
+                    }*/
 
 
             }

@@ -1,4 +1,4 @@
-public class Weapon extends Item{
+public abstract class Weapon extends Item{
 
     private String weapon;
     private int damage;
@@ -8,11 +8,12 @@ public class Weapon extends Item{
         this.weapon = weapon;
     }
 
-    public String getWeapon(){
-        return weapon;
-    }
 
     public int getDamage(){
         return damage;
     }
+    public abstract void useAmmo();
+
+    public abstract int getAmmunition();
+    public abstract Boolean canUse();
 }

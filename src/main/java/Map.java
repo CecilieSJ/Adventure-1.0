@@ -4,6 +4,7 @@ public class Map {
 
     private Room startRoom;
 
+
     public Map() {
 
         Room cabin = new Room("Cabin", "Something startled you in your sleep and you woke up with shock. You find yourself in a cabin fare fare away from everything. " +
@@ -44,15 +45,22 @@ public class Map {
         Item note = new Item("note'Go to the lake and you'll find what you seek'", " If the note is there, maybe you should listen");
         Item divingGear = new Item("diving gear", " Well you need to learn one day. Might as well be now.");
 
+        MeleeWeapon numse = new MeleeWeapon("numse", "ggg", "ss", 4);
+        RangedWeapon lort = new RangedWeapon("lort", "ff", "hh", 22,22);
 
+        Enemy prut = new Enemy("prut", "er super sej", 10, 20);
 
         cabin.setEast(forest);
         cabin.setSouth(hill);
         cabin.addItem(jacket);
         cabin.addItem(flashLight);
-        cabin.addItem(new Food("apple","This apple looks like it have just been picked, as it is in perfect condition", 10));
-        cabin.addItem(new Weapon("bottle","a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used","Melee weapon",1));
-        cabin.addEnemy(new Enemy("prut", "er super sej", 10, 20));
+        cabin.addItem(new Food("apple", "This apple looks like it have just been picked, as it is in perfect condition", 10));
+        cabin.addItem(numse);
+        //cabin.addItem(new MeleeWeapon("bottle", "a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used", "Melee weapon", 1));
+        //cabin.addEnemy(new Enemy("prut", "er super sej", 10, 20));
+        cabin.addItem(lort);
+        cabin.addEnemy(prut);
+        //cabin.addItem(new RangedWeapon("numse", "a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used", "Ranged Weapon", 1, 100));
 
 
         forest.setEast(gateToVillage);
@@ -62,7 +70,7 @@ public class Map {
         gateToVillage.setWest(forest);
         gateToVillage.setSouth(theVillage);
         gateToVillage.addItem(key);
-        gateToVillage.addItem(new Food("bread","This bread lays near the gate, you dont know why it is there, but you take it",15));
+        gateToVillage.addItem(new Food("bread", "This bread lays near the gate, you dont know why it is there, but you take it", 15));
 
         hill.setNorth(cabin);
         hill.setSouth(payphone);
@@ -78,29 +86,29 @@ public class Map {
         payphone.setEast(theLake);
 
 
-
         theLake.setNorth(tainStation);
         theLake.setWest(payphone);
         theLake.setEast(theHouse);
         theLake.addItem(divingGear);
-        theLake.addItem(new Food("nuts","a little bag of healthy snacks for an adventure and the locals in the nearby village",11));
-        theLake.addItem(new Food("orange","This orange is unusually big, but it just makes it looks more tasty",30));
-        theLake.addItem(new Food("crab","This crab seems to be almost dead but when you look at it, you get an unexplainable urge to consume it, even though you know you should not",-100));
-        theLake.addItem(new Food("seaweed","A small bundle of seaweed that has a salty smell to it and probably salty taste as well",-12));
-        theLake.addItem(new Weapon("sword","a long sword that looks heavy but once you try to hold it, it isnt heavy at all","Melee Weapon",150));
-        theLake.addItem(new Weapon("staff","a normal wooden staff","Melee Weapon",25));
-        theLake.addEnemy(new Enemy("Troll","A fairly sized club made of wood. An ugly troll blocks you from what you seek which is your escape from this place",200,15));
+        theLake.addItem(new Food("nuts", "a little bag of healthy snacks for an adventure and the locals in the nearby village", 11));
+        theLake.addItem(new Food("orange", "This orange is unusually big, but it just makes it looks more tasty", 30));
+        theLake.addItem(new Food("crab", "This crab seems to be almost dead but when you look at it, you get an unexplainable urge to consume it, even though you know you should not", -100));
+        theLake.addItem(new Food("seaweed", "A small bundle of seaweed that has a salty smell to it and probably salty taste as well", -12));
+        theLake.addItem(new MeleeWeapon("sword", "a long sword that looks heavy but once you try to hold it, it isnt heavy at all", "Melee Weapon", 150));
+        theLake.addItem(new MeleeWeapon("staff", "a normal wooden staff", "Melee Weapon", 25));
+        theLake.addEnemy(new Enemy("Troll", "A fairly sized club made of wood. An ugly troll blocks you from what you seek which is your escape from this place", 200, 15));
 
         theHouse.setNorth(theVillage);
         theHouse.setWest(theLake);
         theHouse.addItem(note);
-        theHouse.addItem(new Food("fish","This fish is rotten and smelly, you shouldnt eat it",-95));
-        theHouse.addItem(new Food("chicken ","its just a normal grilled chicken wing. It has just been abandoned for a little while. 10 second rule",-25));
+        theHouse.addItem(new Food("fish", "This fish is rotten and smelly, you shouldnt eat it", -95));
+        theHouse.addItem(new Food("chicken ", "its just a normal grilled chicken wing. It has just been abandoned for a little while. 10 second rule", -25));
 
 
         startRoom = cabin;
 
     }
+
 
     public Room getStartRoom() {
         return startRoom;

@@ -2,13 +2,13 @@ public class Enemy {
 
     private String enemyName;
     private String enemyDescription;
-    private int enemyHealth;
+    private int health;
     private int enemyDamage;
     private Room room;
 
 
     public Enemy(String enemyName, String enemyDescription, int enemyHealth, int enemyDamage){
-        this.enemyHealth = enemyHealth;
+        this.health = enemyHealth;
         this.enemyName = enemyName;
         this.enemyDescription = enemyDescription;
         this.enemyDamage = enemyDamage;
@@ -23,8 +23,8 @@ public class Enemy {
         return enemyDescription;
     }
 
-    public int getEnemyHealth(){
-        return enemyHealth;
+    public int getHealth(){
+        return health;
     }
 
     public int getEnemyDamage(){
@@ -32,13 +32,21 @@ public class Enemy {
     }
 
     public boolean death(){
-        if(enemyHealth>=0){
+        if(health >=0){
             room.removeEnemy(enemyName);
             return true;
         }else {
             return false;
         }
     }
+    public void currentHealth(int damage) {
+        health -= damage;
+    }
+    @Override
+    public String toString() {
+        return enemyName + enemyDescription + health;
+    }
+
 
 
 

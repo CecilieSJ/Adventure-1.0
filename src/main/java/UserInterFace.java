@@ -113,7 +113,7 @@ public class UserInterFace {
                         System.out.println(inventory1 + "unequipped");
                     }
 
-                break;
+                    break;
 
 
                 case "attack":
@@ -122,11 +122,12 @@ public class UserInterFace {
                     Item searchForEquippedItem = adventure.getCurrentWeapon();
                     Item roomInventory = adventure.searchItemInv(userChoice);
 
-                    if (attack == Attack.ATTACK_MELEE) {
-                        System.out.println("Melee attack. " + ((MeleeWeapon) searchForEquippedItem).getDamage() + " damage dealt");
-                    } else if (attack == Attack.ATTACK_RANGE) {
+
+                    if (attack == Attack.ATTACK_RANGE) {
                         System.out.println("Range attack. " + ((RangedWeapon) searchForEquippedItem).getDamage() + " damage dealt");
-                        System.out.println(((RangedWeapon) searchForEquippedItem).getAmmunition() + " shots left");
+                        System.out.println(((RangedWeapon) searchForEquippedItem).getAmmunition() + " ammunition left");
+                    } else if (attack == Attack.ATTACK_MELEE) {
+                        System.out.println("Melee attack. " + ((MeleeWeapon) searchForEquippedItem).getDamage() + " damage dealt");
                     } else if (attack == Attack.NO_AMMO) {
                         System.out.println("No ammunition left");
                     } else if (attack == Attack.NOT_EQUIPPED) {

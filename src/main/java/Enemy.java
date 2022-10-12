@@ -32,7 +32,7 @@ public class Enemy {
     }
 
     public boolean death(){
-        if(health >=0){
+        if(health <=0){
             room.removeEnemy(enemyName);
             return true;
         }else {
@@ -42,6 +42,11 @@ public class Enemy {
     public void currentHealth(int damage) {
         health -= damage;
     }
+
+    public void setRoom(Room room){
+        this.room=room;
+    }
+
     @Override
     public String toString() {
         return enemyName + enemyDescription + health;

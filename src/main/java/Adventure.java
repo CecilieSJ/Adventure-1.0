@@ -48,29 +48,12 @@ public class Adventure {
         return player.getInventory();
     }
 
-    /*public ArrayList<Item> allWeaponList() {
-        return player.getWeaponList();
-    }*/
 
 
     public String getWeapon() {
         return player.getWeapon();
     }
 
-  /*  public Weapon getCurrentweapon() {
-        return player.getCurrentWeapon();
-    }*/
-
-
-   /* public Item getEquippedItem(String itemName) {
-        return player.getEquippedItem(itemName);
-    }*/
-
-    /*public String attack() {
-        return player.attack();
-    }
-
-*/
     public Weapon getCurrentWeapon() {
         return player.getCurrentWeapon();
     }
@@ -86,22 +69,6 @@ public class Adventure {
     public Attack attack(String itemName) {
         return player.attack(itemName);
     }
-
-
-   /* public Item searchItemInv(String itemName) {
-        return player.searchItemInv(itemName);
-    }
-
-
-
-    public Attack attack(String itemName) {
-        return player.attack(itemName);
-    }
-
-*/
-
-
-
 
 }
 

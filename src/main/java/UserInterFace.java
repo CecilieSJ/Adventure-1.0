@@ -84,22 +84,21 @@ public class UserInterFace {
                     break;
 
                 case "equip", "eq":
-                  /*  Item item = adventure.takeItem(userChoice);
-                    ArrayList<Item> weaponInInventory = adventure.getPlayer().getInventory();
-                    if (weaponInInventory != null){
-                        if (item instanceof Weapon weapon) {
-                            System.out.println("You have now equipped " + item.getItemName());
+                    Item itemEq = adventure.takeItem(userChoice);
+                    //ArrayList<Item> weaponInInventory = adventure.getPlayer().getInventory();
+                    if (itemEq != null){
+                        if (itemEq instanceof Weapon weapon) {
+                            System.out.println("You have now equipped " +((Weapon) itemEq).getWeapon());
                             adventure.getPlayer().equip(weapon);
                         } else {
-                            System.out.println(item.getItemName() + " is not a weapon");
+                            System.out.println( "is not a weapon");
                         }
 
-                    } else if (roomInventory1 == null) {
+                    } else if (itemEq == null) { //Do not work
                         System.out.println("There is nothing with that name");
 
                     }  break;
-*/
-                    }*/  break;
+
 
 
 

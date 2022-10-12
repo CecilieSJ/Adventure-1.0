@@ -8,11 +8,16 @@ import ENUM.EquipItem;
 public class UserInterFace {
     Scanner scan = new Scanner(System.in);
     Adventure adventure = new Adventure();
+    final String ANSI_RESET = "\u001b[0m";
+    final String ANSI_BAGGROUND= "\u001b[44m";
+    final String ANSI_FED = "\u001b[1m";
+
 
     public void startMenu() {
         boolean isRunning = true;
-        System.out.println("Welcome to The Adventure Game!");
-        System.out.println("You are now in a " + adventure.getStartRoom().getName() + "\n" + adventure.getStartRoom().getDescription());
+        System.out.println(ANSI_BAGGROUND+"Escape the abandoned village!" + ANSI_RESET);
+        System.out.println("┌──────────────────────────────┐");
+        System.out.println( ANSI_FED + "You are now in a " + adventure.getStartRoom().getName() + "\n└" + "─".repeat(30) + "┘"+ ANSI_RESET + "\n" + adventure.getStartRoom().getDescription());
         while (isRunning) {
             String direction = scan.nextLine().toLowerCase();
             String[] userInputs = direction.split(" ");

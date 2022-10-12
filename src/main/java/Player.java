@@ -86,6 +86,7 @@ public class Player {
         return life;
     }
 
+
     public void setLife(int life) {
         this.life = life;
     }
@@ -95,6 +96,7 @@ public class Player {
     }
 
     public void attack() {
+
     }
 
     public String getWeapon() {

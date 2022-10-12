@@ -10,6 +10,7 @@ public class Adventure {
 
     }
 
+
     public Item takeItem(String itemName) {
         return player.takeItem(itemName);
     }
@@ -46,9 +47,17 @@ public class Adventure {
     }
 
 
+
     public String getWeapon() {
         return player.getWeapon();
     }
+
+    public String CurrentWeapon(){
+        return CurrentWeapon();
+    }
+    
+
+
 
 
 

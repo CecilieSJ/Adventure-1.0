@@ -49,9 +49,6 @@ public class Map {
     private Item divingGear = new Item("diving gear", " Well you need to learn one day. Might as well be now.");
 
 
-    // MeleeWeapon numse = new MeleeWeapon("numse", "ggg", "ss", 4);
-    //RangedWeapon lort = new RangedWeapon("lort", "ff", "hh", 22,22);
-
     //Enemies
     private Enemy goat = new Enemy("goat ", "Watch out for the horns", 10, 20);
     private Enemy troll = new Enemy("troll", "A fairly sized club made of wood. An ugly troll blocks you from what you seek which is your escape from this place", 200, 15);
@@ -70,7 +67,7 @@ public class Map {
         cabin.addItem(new MeleeWeapon("bottle", "a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used", "Melee weapon", 1));
 
 
-        cabin.addItem(new RangedWeapon("numse", "a broken bottle that is not very useful in a fight, as it looks like it might shatter the next time its used", "Ranged Weapon", 1, 100));
+        cabin.addItem(new RangedWeapon("bow", "a fairly new bow that doesnt look like it has been used in combat", "Ranged Weapon", 1, 100));
 
 
         forest.setEast(gateToVillage);
